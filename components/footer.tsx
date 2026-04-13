@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import LinkedInLogo from "../public/linkedin.png";
+import GitHubLogo from "../public/github.png";
+import InstagramLogo from "../public/instagram-logo.jpg";
 
 export default function Footer() {
   return (
@@ -64,7 +67,7 @@ export default function Footer() {
             className="w-[44] p-2 border-1 border-gray-400 rounded-full hover:bg-blue-300"
           >
             <Image
-              src={"/linkedin.png"}
+              src={LinkedInLogo}
               width={48}
               height={48}
               alt="Asim Raza LinkedIn Profile"
@@ -79,7 +82,7 @@ export default function Footer() {
             className="w-[44] p-2 border-1 border-gray-400 rounded-full hover:bg-blue-300"
           >
             <Image
-              src={"/github.png"}
+              src={GitHubLogo}
               width={48}
               height={48}
               alt="Asim Raza Github Profile"
@@ -94,7 +97,7 @@ export default function Footer() {
             className="w-[44] p-2 border-1 border-gray-400 rounded-full hover:bg-blue-300"
           >
             <Image
-              src={"/instagram-logo.jpg"}
+              src={InstagramLogo}
               width={36}
               height={36}
               alt="Asim Raza Instagram Profile"

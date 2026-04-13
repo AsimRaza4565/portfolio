@@ -3,6 +3,7 @@
 import React from "react";
 import Buttons from "./button";
 import Image from "next/image";
+import AsimRazaImg from "../public/Asim_Raza.jpg";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 
@@ -63,7 +64,7 @@ export default function Home() {
             className="md:w-1/3 xs:2/3 flex items-center justify-center"
           >
             <Image
-              src={"/Asim_Raza.jpg"}
+              src={AsimRazaImg}
               alt="Asim Raza"
               width={286}
               height={286}

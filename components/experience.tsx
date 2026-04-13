@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import RevnixLogo from "../public/revnix-logo.png";
+import BispLogo from "../public/bisp-logo.png";
 
 const experiences = {
   experience_1: {
@@ -93,7 +95,7 @@ export default function Experience() {
               rel="noopener noreferrer"
             >
               <Image
-                src={"/revnix-logo.png"}
+                src={RevnixLogo}
                 width={200}
                 height={200}
                 alt="Revnix Logo"
@@ -141,7 +143,7 @@ export default function Experience() {
               rel="noopener noreferrer"
             >
               <Image
-                src={"/bisp-logo.png"}
+                src={BispLogo}
                 width={200}
                 height={200}
                 alt="BISP Logo"

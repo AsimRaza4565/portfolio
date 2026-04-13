@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import RoleBasedImg from "../public/role-based-CRUD.png";
+import NextJsLogo from "../public/nextjs-logo.svg";
+import FigmaImg from "../public/Figma.png";
+import CSSLogo from "../public/CSS-Logo.png";
+import ThreeStepImg from "../public/3-step-form.png";
+import JSLogo from "../public/javascript-logo.png";
 
 const Project_Info = {
   Project_1: "Full-stack RBAC system with secure authentication and CRUD operations, built with Next.js and MongoDB. Features scalable architecture and a modern, responsive frontend.",
@@ -54,7 +60,7 @@ export default function Projects() {
           >
             <div className="h-[200] rounded-t-lg">
               <Image
-                src={"/role-based-CRUD.png"}
+                src={RoleBasedImg}
                 width={768}
                 height={200}
                 alt="Role-Based CRUD"
@@ -62,7 +68,7 @@ export default function Projects() {
               ></Image>
             </div>
             <Image
-              src={"/nextjs-logo.svg"}
+              src={NextJsLogo}
               height={50}
               width={50}
               alt="Next.js Logo"
@@ -85,7 +91,7 @@ export default function Projects() {
           >
             <div className="h-[200px]">
               <Image
-                src={"/Figma.png"}
+                src={FigmaImg}
                 width={768}
                 height={200}
                 alt="Figma to Web"
@@ -93,7 +99,7 @@ export default function Projects() {
               ></Image>
             </div>
             <Image
-              src={"/CSS-Logo.png"}
+              src={CSSLogo}
               height={58}
               width={58}
               alt="CSS Logo"
@@ -116,7 +122,7 @@ export default function Projects() {
           >
             <div className="h-[200px]">
               <Image
-                src={"/3-step-form.png"}
+                src={ThreeStepImg}
                 width={768}
                 height={200}
                 alt="3-step-form"
@@ -124,7 +130,7 @@ export default function Projects() {
               ></Image>
             </div>
             <Image
-              src={"/javascript-logo.png"}
+              src={JSLogo}
               height={42}
               width={42}
               alt="JS Logo"

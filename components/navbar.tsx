@@ -18,6 +18,7 @@ import {
 import { Menu, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import AsimLogo from "../public/Asim.png";
 
 export default function Navbar() {
   return (
@@ -27,7 +28,7 @@ export default function Navbar() {
         <a href="#home">
           <div className="flex items-center w-[150] h-[84]">
             <Image
-              src="/Asim.png"
+              src={AsimLogo}
               alt="Author Asim-Raza"
               width={136}
               height={36}

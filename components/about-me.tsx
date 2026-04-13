@@ -3,6 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import EduSymbol from "../public/education-symbol.svg";
+import CertSymbol from "../public/certifications-symbol.png";
 
 export default function About() {
   return (
@@ -32,7 +34,7 @@ export default function About() {
             <div className="flex gap-3 items-center border-b border-gray-300 pb-3">
               <h3 className="text-xl font-semibold">Education</h3>
               <Image
-                src={"/education-symbol.svg"}
+                src={EduSymbol}
                 alt="education-symbol"
                 width={30}
                 height={30}
@@ -54,7 +56,7 @@ export default function About() {
             <div className="flex gap-3 items-center border-b border-gray-300 pb-3">
               <h3 className="text-xl font-semibold">Training & Certifications</h3>
               <Image
-                src={"/certifications-symbol.png"}
+                src={CertSymbol}
                 alt="education-symbol"
                 width={30}
                 height={30}
