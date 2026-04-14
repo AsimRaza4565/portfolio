@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/Asim_Raza.webp?v=1", type: "image/webp" }],
   },
   title: {
-    default: "Asim Raza | Software Engineer & Frontend Developer",
+    default: "Asim Raza | Frontend Developer",
     template: "%s | Asim Raza",
   },
   description: "Personal portfolio of Asim Raza, a specialized Software Engineer and Frontend Developer crafting modern, high-performance web applications.",
