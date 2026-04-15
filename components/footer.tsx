@@ -10,35 +10,35 @@ export default function Footer() {
   return (
     <section id="contact">
       <div className="w-full sm:px-8 xs:px-4 sm:mt-24 xs:mt-12 bg-white sm:pt-24 xs:pt-16 pb-1 mx-auto flex flex-col gap-4 items-center">
-        <div className="flex sm:gap-5 xs:gap-3 flex-wrap justify-center text-lg font text-blue-700 lg:mb-5">
+        <div className="flex sm:gap-5 xs:gap-3 flex-wrap justify-center text-lg font text-gray-800 lg:mb-5">
           <Link
             href={"#home"}
-            className="hover:text-blue-900 hover:underline hover:font-semibold"
+            className="hover:text-yellow-600 hover:underline hover:font-semibold"
           >
             Home
           </Link>
           <Link
             href={"#background"}
-            className="hover:text-blue-900 hover:underline hover:font-semibold"
+            className="hover:text-yellow-600 hover:underline hover:font-semibold"
           >
             About Me
           </Link>
           <Link
             href={"#services"}
-            className="hover:text-blue-900 hover:underline hover:font-semibold"
+            className="hover:text-yellow-600 hover:underline hover:font-semibold"
           >
             Services
           </Link>
           <Link
             href={"#projects"}
-            className="hover:text-blue-900 hover:underline hover:font-semibold"
+            className="hover:text-yellow-600 hover:underline hover:font-semibold"
           >
             Projects
           </Link>
         </div>
         <div className="flex flex-col justify-center items-center gap-1">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-center font-semibold text-black">
-            Let&apos;s Work <span className="text-green-600">Together</span>
+          <h2 className="text-xl md:text-2xl text-center font-semibold text-black">
+            Let&apos;s Work Together
           </h2>
           <h3 className="xs:text-2xl sm:text-3xl font-semibold text-yellow-500">
             Asim Raza
@@ -53,7 +53,7 @@ export default function Footer() {
           </p>
           <a
             href="mailto:asimr4858@gmail.com"
-            className="text-blue-700 hover:underline text-md"
+            className="text-gray-800 hover:text-yellow-600 hover:underline text-md"
           >
             asimr4858@gmail.com
           </a>
@@ -64,7 +64,7 @@ export default function Footer() {
             aria-label="LinkedIn Profile"
             target="blank"
             rel="noopener noreferrer"
-            className="w-[44] p-2 border-1 border-gray-400 rounded-full hover:bg-blue-300"
+            className="w-[44] p-2 border-1 border-gray-400 rounded-full hover:bg-yellow-200"
           >
             <Image
               src={LinkedInLogo}
@@ -79,14 +79,14 @@ export default function Footer() {
             aria-label="Github Profile"
             target="blank"
             rel="noopener noreferrer"
-            className="w-[44] p-2 border-1 border-gray-400 rounded-full hover:bg-blue-300"
+            className="w-[44] p-2 border-1 border-gray-400 rounded-full hover:bg-yellow-200"
           >
             <Image
               src={GitHubLogo}
               width={48}
               height={48}
               alt="Asim Raza Github Profile"
-              className="hover:bg-blue-300 rounded-full w-full"
+              className="hover:bg-yellow-200 rounded-full w-full"
             ></Image>
           </a>
           <a
@@ -94,7 +94,7 @@ export default function Footer() {
             aria-label="Instagram Profile"
             target="blank"
             rel="noopener noreferrer"
-            className="w-[44] p-2 border-1 border-gray-400 rounded-full hover:bg-blue-300"
+            className="w-[44] p-2 border-1 border-gray-400 rounded-full hover:bg-yellow-200"
           >
             <Image
               src={InstagramLogo}

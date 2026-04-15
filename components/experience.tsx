@@ -63,7 +63,7 @@ export default function Experience() {
             ease: "easeOut",
           }}
         >
-          <h2 className="xs:text-2xl sm:text-3xl pb-2 font-semibold text-orange-500">
+          <h2 className="xs:text-2xl sm:text-3xl pb-2 font-semibold text-yellow-500">
             {experiences.experience_1.title}
           </h2>
           <span className="text-md font-semibold text-gray-400">
@@ -99,7 +99,7 @@ export default function Experience() {
                 width={200}
                 height={200}
                 alt="Revnix Logo"
-                className="rounded-full shadow-md shadow-orange-500"
+                className="rounded-full shadow-md shadow-yellow-500"
               />
             </a>
           </motion.div>
@@ -115,7 +115,7 @@ export default function Experience() {
             ease: "easeOut",
           }}
         >
-          <h2 className="xs:text-2xl sm:text-3xl pb-2 font-semibold text-orange-500">
+          <h2 className="xs:text-2xl sm:text-3xl pb-2 font-semibold text-yellow-500">
             {experiences.experience_2.title}
           </h2>
           <span className="text-md font-semibold text-gray-400">

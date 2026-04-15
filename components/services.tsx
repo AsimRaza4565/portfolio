@@ -78,12 +78,12 @@ export default function Services() {
                 duration: card.duration,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
-              className="flex-1 border border-gray-300 rounded-sm lg:p-8 p-4 text-white flex flex-col gap-3 hover:shadow-md shadow-gray-600 hover:scale-[1.02] transition-transform duration-500 ease-in-out hover:bg-gray-700 hover:border-pink-500"
+              className="flex-1 border border-gray-300 rounded-sm lg:p-8 p-4 text-white flex flex-col gap-3 hover:shadow-md shadow-gray-600 hover:scale-[1.02] transition-transform duration-500 ease-in-out hover:bg-gray-700 hover:border-yellow-500"
             >
               <span className="text-2xl font-semibold text-yellow-200">
                 {card.num}
               </span>
-              <h3 className="text-[24px] font-semibold text-transparent bg-gradient-to-r from-orange-400 via-pink-500 to-rose-600 bg-clip-text">
+              <h3 className="text-[24px] font-semibold text-transparent bg-gradient-to-r from-yellow-300 via-yellow-400 to-amber-500 bg-clip-text">
                 {card.title}
               </h3>
               <p>{card.desc}</p>

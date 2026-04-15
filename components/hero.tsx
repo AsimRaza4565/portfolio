@@ -11,7 +11,7 @@ const My_Info = {
   name: "Asim Raza",
   title: "Frontend Developer",
   Description:
-  "Frontend Developer building and maintaining production web applications with React, Next.js, and TypeScript, from UI development and API integration to CMS updates, performance, accessibility, and SEO improvements..."
+  "Frontend Developer building and maintaining production web applications with React, Next.js, and TypeScript, from UI development and API integration to CMS updates, performance, accessibility, and SEO improvements."
 };
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
             <div className="text-gray-300 lg:text-2xl md:text-lg md:pt-0 xs:pt-8 pb-4">
               Hello! I am
             </div>
-            <span className="text-black bg-green-300 px-1 lg:text-3xl xs:text-2xl font-semibold">
+            <span className="text-black bg-yellow-400 px-1 lg:text-3xl xs:text-2xl font-semibold">
               {My_Info.name}
             </span>
             <h1 className="font-bold text-yellow-500 xl:text-5xl lg:text-5xl mt-3 mb-6 md:text-4xl sm:text-4xl xs:text-3xl">

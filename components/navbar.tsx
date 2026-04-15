@@ -24,7 +24,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-800/80 backdrop-blur-md overflow-hidden">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-800/80 backdrop-blur-md">
       <div className="max-w-[1200px] mx-auto flex justify-between items-center sm:px-8 xs:px-4 sm:py-3 xs:py-1">
         {/* Logo */}
         <a href="#home">
@@ -44,7 +44,7 @@ export default function Navbar() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>About</NavigationMenuTrigger>
-                <NavigationMenuContent className="flex gap-2 text-blue-700">
+                <NavigationMenuContent className="flex gap-2 text-yellow-500">
                   <Link href="#home">
                     <NavigationMenuLink>Home</NavigationMenuLink>
                   </Link>
@@ -56,7 +56,7 @@ export default function Navbar() {
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Expertise</NavigationMenuTrigger>
-                <NavigationMenuContent className="flex gap-2 text-blue-700">
+                <NavigationMenuContent className="flex gap-2 text-yellow-500">
                   <Link href="#skills">
                     <NavigationMenuLink>Skills</NavigationMenuLink>
                   </Link>
@@ -68,7 +68,7 @@ export default function Navbar() {
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Work</NavigationMenuTrigger>
-                <NavigationMenuContent className="flex gap-2 text-blue-700">
+                <NavigationMenuContent className="flex gap-2 text-yellow-500">
                   <Link href="#projects">
                     <NavigationMenuLink>Projects</NavigationMenuLink>
                   </Link>

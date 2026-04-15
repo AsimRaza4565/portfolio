@@ -22,22 +22,22 @@ const techGroups = [
       "CSS3",
       "Tailwind CSS",
     ],
-    icon: <Code2 className="w-5 h-5 text-lime-400" />,
+    icon: <Code2 className="w-5 h-5 text-yellow-400" />,
   },
   {
     title: "Backend & APIs",
     items: ["REST APIs", "API Integration", "Node.js (Basic)"],
-    icon: <Zap className="w-5 h-5 text-lime-400" />,
+    icon: <Zap className="w-5 h-5 text-yellow-400" />,
   },
   {
     title: "Database & CMS",
     items: ["MongoDB", "CMS Management", "Content Updates"],
-    icon: <Database className="w-5 h-5 text-lime-400" />,
+    icon: <Database className="w-5 h-5 text-yellow-400" />,
   },
   {
     title: "Tools & Workflow",
     items: ["Git", "GitHub", "Postman", "VS Code", "Responsive Design"],
-    icon: <Wrench className="w-5 h-5 text-lime-400" />,
+    icon: <Wrench className="w-5 h-5 text-yellow-400" />,
   },
 ];
 
@@ -46,19 +46,19 @@ const strengths = [
     title: "Performance Optimization",
     description:
       "Improve page speed, reduce unnecessary re-renders, and optimize frontend performance across production pages.",
-    icon: <Zap className="w-5 h-5 text-lime-400" />,
+    icon: <Zap className="w-5 h-5 text-yellow-400" />,
   },
   {
     title: "Accessibility",
     description:
       "Enhance usability with accessible markup, semantic structure, and better user experience across devices.",
-    icon: <ShieldCheck className="w-5 h-5 text-lime-400" />,
+    icon: <ShieldCheck className="w-5 h-5 text-yellow-400" />,
   },
   {
     title: "SEO & Visibility",
     description:
       "Implement SEO-conscious frontend practices including semantic HTML, metadata, and performance-focused improvements.",
-    icon: <Search className="w-5 h-5 text-lime-400" />,
+    icon: <Search className="w-5 h-5 text-yellow-400" />,
   },
 ];
 
