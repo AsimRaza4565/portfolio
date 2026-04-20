@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import RevnixLogo from "../public/revnix-logo.webp";
 import BispLogo from "../public/bisp-logo.webp";
+import Link from "next/link";
 
 const experiences = {
   experience_1: {
@@ -89,7 +90,7 @@ export default function Experience() {
             }}
             className="lg:w-1/3 xs:w-full flex justify-center relative"
           >
-            <a
+            <Link
               href="https://www.revnix.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -101,7 +102,7 @@ export default function Experience() {
                 alt="Revnix Logo"
                 className="rounded-full shadow-md shadow-yellow-500"
               />
-            </a>
+            </Link>
           </motion.div>
         </div>
 
@@ -137,7 +138,7 @@ export default function Experience() {
             }}
             className="lg:w-1/3 xs:w-full flex justify-center relative"
           >
-            <a
+            <Link
               href="https://bisp.gov.pk"
               target="_blank"
               rel="noopener noreferrer"
@@ -148,7 +149,7 @@ export default function Experience() {
                 height={200}
                 alt="BISP Logo"
               />
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-800/80 backdrop-blur-md">
       <div className="max-w-[1200px] mx-auto flex justify-between items-center sm:px-8 xs:px-4 sm:py-3 xs:py-1">
         {/* Logo */}
-        <a href="#home">
+        <Link href="#home">
           <div className="flex items-center w-[150] h-[84]">
             <Image
               src={AsimLogo}
@@ -36,11 +36,11 @@ export default function Navbar() {
               height={36}
             />
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex">
-          <NavigationMenu>
+          <NavigationMenu viewport={false}>
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>About</NavigationMenuTrigger>
