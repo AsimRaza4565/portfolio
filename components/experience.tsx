@@ -6,8 +6,9 @@ import RevnixLogo from "../public/revnix-logo.webp";
 import RhombixLogo from "../public/rhombix-logo.webp";
 import BispLogo from "../public/bisp-logo.webp";
 import Link from "next/link";
+import { IExperience } from "@/types";
 
-const experiences = [
+const experiences: IExperience[] = [
   {
     id: "experience_1",
     title:

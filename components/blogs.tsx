@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import Typewriter from "typewriter-effect";
 import Blog1Img from "../public/Blog_1.webp";
@@ -9,17 +9,9 @@ import Blog2Img from "../public/Blog_2.webp";
 import Blog3Img from "../public/Blog_3.webp";
 import Blog4Img from "../public/Blog_4.webp";
 import Blog5Img from "../public/Blog_5.webp";
+import { IBlog, IBlogCardProps } from "@/types";
 
-type Blog = {
-  id: number;
-  title: string;
-  content: string;
-  image: StaticImageData | string;
-  altText: string;
-  reversed?: boolean;
-};
-
-const blogs = [
+const blogs: IBlog[] = [
   {
     id: 1,
     title: "From Figma to Production: How I Build Responsive UIs That Don’t Break",
@@ -105,7 +97,7 @@ export default function Blogs() {
   );
 }
 
-function BlogCard({ blog }: { blog: Blog; index: number }) {
+function BlogCard({ blog }: IBlogCardProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.3,

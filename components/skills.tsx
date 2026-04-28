@@ -9,8 +9,9 @@ import {
   ShieldCheck,
   Search,
 } from "lucide-react";
+import { ITechGroup, ICoreStrength } from "@/types";
 
-const techGroups = [
+const techGroups: ITechGroup[] = [
   {
     title: "Frontend",
     items: [
@@ -41,7 +42,7 @@ const techGroups = [
   },
 ];
 
-const strengths = [
+const strengths: ICoreStrength[] = [
   {
     title: "Performance Optimization",
     description:

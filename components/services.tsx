@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { IServiceInfo } from "@/types";
 
-const My_Services = {
+const My_Services: IServiceInfo = {
   service_1_title: "Responsive Web Development",
   service_1_desc:
     "I transform Figma designs into production-ready websites using React, Next.js, Tailwind CSS, and ShadcnUI. Every site adapts seamlessly across devices, performs smoothly, and meets modern accessibility standards.",

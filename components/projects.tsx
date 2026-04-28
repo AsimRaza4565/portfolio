@@ -9,8 +9,9 @@ import FigmaImg from "../public/Figma.webp";
 import CSSLogo from "../public/CSS-Logo.webp";
 import ThreeStepImg from "../public/3-step-form.webp";
 import JSLogo from "../public/javascript-logo.webp";
+import { IProjectInfo } from "@/types";
 
-const Project_Info = {
+const Project_Info: IProjectInfo = {
   Project_1: "Full-stack RBAC system with secure authentication and CRUD operations, built with Next.js and MongoDB. Features scalable architecture and a modern, responsive frontend.",
   Project_2: "Responsive website converted from Figma design, optimized for performance, cross-browser compatibility, and pixel-perfect accuracy.",
   Project_3: "Multi-step form wizard with real-time validation using vanilla JS. Smooth user navigation and clean data handling."
