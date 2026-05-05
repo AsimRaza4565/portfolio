@@ -19,13 +19,14 @@ export default function About() {
         className="max-w-[1200px] mx-auto px-8"
       >
         <div className="flex justify-center">
-          <h2 className="text-lg px-3 py-1 mb-4 shadow-md shadow-gray-700 border-1 border-gray-700 rounded-3xl text-center text-black bg-gray-300">
+          <h2 className="text-lg px-3 py-1 mb-4 shadow-md shadow-gray-700 border border-gray-700 rounded-3xl text-center text-black bg-gray-300">
             About Me
           </h2>
         </div>
         <div className="flex justify-center">
           <p className="text-gray-300 text-center text-lg! sm:text-base leading-7 mb-10">
-            The education, certifications, and hands-on learning behind my development journey.
+            The education, certifications, and hands-on learning behind my
+            development journey.
           </p>
         </div>
         <div className="mx-auto space-y-5">
@@ -55,7 +56,9 @@ export default function About() {
           {/* Certifications Card */}
           <div className="bg-gray-200 sm:px-8 sm:py-6 xs:px-4 xs:py-3 rounded-lg shadow-lg shadow-gray-600 hover:scale-101 transition-transform duration-500 ease-in-out">
             <div className="flex gap-3 items-center border-b border-gray-300 pb-3">
-              <h3 className="text-xl font-semibold">Training & Certifications</h3>
+              <h3 className="text-xl font-semibold">
+                Training & Certifications
+              </h3>
               <Image
                 src={CertSymbol}
                 alt="certifications-symbol"
@@ -66,23 +69,30 @@ export default function About() {
             </div>
 
             <h3 className="text-lg font-semibold mt-2">
-              Frontend Web Development
+              Frontend Web Development Trainee
             </h3>
-            <p className="text-gray-500 xs:flex flex-col md:block">
-              Revnix fmr. Revnix Technologies •{" "}
-              <span className="font-semibold">April 2025 - Present</span>
+            <p className="text-gray-500">
+              Revnix Technologies • Haripur • April 2025 – December 2025
             </p>
             <h3 className="text-lg font-semibold mt-2">
-              Web Development (C#, SQL)
+              Web Development Intern
             </h3>
-            <p className="text-gray-500 xs:flex flex-col md:block">
-              Benazir Income Support Programme HQ, Islamabad •{" "}
-              <span className="font-semibold">July 2024 - September 2024</span>
+            <p className="text-gray-500">
+              Rhombix Technologies • Lahore (Remote) • October 2025 – January
+              2026
             </p>
-            <h3 className="text-lg font-semibold mt-2">Google Cybersecurity Professional Certificate</h3>
-            <p className="text-gray-500 xs:flex flex-col md:block">
-              Coursera •{" "}
-              <span className="font-semibold">April 2024 - July 2024</span>
+            <h3 className="text-lg font-semibold mt-2">
+              Web Development Intern
+            </h3>
+            <p className="text-gray-500">
+              Benazir Income Support Programme Headquarter • Islamabad • July 2024 –
+              September 2024
+            </p>
+            <h3 className="text-lg font-semibold mt-2">
+              Google Cybersecurity Professional Certificate
+            </h3>
+            <p className="text-gray-500">
+              Coursera • Online • April 2024 – July 2024
             </p>
           </div>
         </div>

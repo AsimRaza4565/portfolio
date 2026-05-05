@@ -51,9 +51,7 @@ export default function Home() {
               <Buttons />
             </div>
           </motion.div>
-
-          {/* <div className="bg-red-500 sm:bg-yellow-500 xs:bg-pink-500 p-10"></div> */}
-
+          
           <motion.div
             initial={{ opacity: 0, x: 70 }}
             whileInView={{ opacity: 1, x: 0 }}

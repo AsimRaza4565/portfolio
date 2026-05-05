@@ -31,7 +31,7 @@ export default function Services() {
           }}
           className="flex justify-center"
         >
-          <h2 className="text-lg px-3 py-1 mb-4 shadow-md shadow-gray-700 border-1 border-gray-700 rounded-3xl text-center text-black bg-gray-300">
+          <h2 className="text-lg px-3 py-1 mb-4 shadow-md shadow-gray-700 border border-gray-700 rounded-3xl text-center text-black bg-gray-300">
             Services to Elevate Your Website
           </h2>
         </motion.div>
