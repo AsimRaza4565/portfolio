@@ -68,10 +68,10 @@ export default function Footer() {
             Open to freelance and collaboration opportunities
           </p>
           <Link
-            href="mailto:asimr4858@gmail.com"
+            href="mailto:asimrazadev@gmail.com"
             className="text-blue-800 hover:text-gray-800 hover:underline text-md"
           >
-            asimr4858@gmail.com
+            asimrazadev@gmail.com
           </Link>
         </div>
         <div className="flex items-center gap-4 pt-1">
