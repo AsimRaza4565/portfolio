@@ -57,37 +57,17 @@ export default function About() {
           <div className="bg-gray-200 sm:px-8 sm:py-6 xs:px-4 xs:py-3 rounded-lg shadow-lg shadow-gray-600 hover:scale-101 transition-transform duration-500 ease-in-out">
             <div className="flex gap-3 items-center border-b border-gray-300 pb-3">
               <h3 className="text-xl font-semibold">
-                Training & Certifications
+                Certifications
               </h3>
               <Image
                 src={CertSymbol}
                 alt="certifications-symbol"
-                title="Training & Certifications"
+                title="Certifications"
                 width={30}
                 height={30}
               ></Image>
             </div>
 
-            <h3 className="text-lg font-semibold mt-2">
-              Frontend Web Development Trainee
-            </h3>
-            <p className="text-gray-500">
-              Revnix Technologies • Haripur • April 2025 – September 2025
-            </p>
-            <h3 className="text-lg font-semibold mt-2">
-              Web Development Intern
-            </h3>
-            <p className="text-gray-500">
-              Rhombix Technologies • Lahore (Remote) • October 2025 – January
-              2026
-            </p>
-            <h3 className="text-lg font-semibold mt-2">
-              Web Development Intern
-            </h3>
-            <p className="text-gray-500">
-              Benazir Income Support Programme Headquarter • Islamabad • July 2024 –
-              September 2024
-            </p>
             <h3 className="text-lg font-semibold mt-2">
               Google Cybersecurity Professional Certificate
             </h3>

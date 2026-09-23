@@ -40,7 +40,10 @@ export interface ICoreStrength {
 }
 
 export interface IProjectInfo {
-  [key: string]: string;
+  [key: string]: {
+    title: string;
+    description: string;
+  };
 }
 
 export interface IServiceInfo {

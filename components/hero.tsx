@@ -11,7 +11,7 @@ const My_Info = {
   name: "Asim Raza",
   title: "Frontend Developer",
   Description:
-  "Frontend Developer building and maintaining production web applications with React, Next.js, and TypeScript, from UI development and API integration to CMS updates, performance, accessibility, and SEO improvements."
+  "Frontend-focused Full-Stack Developer with 1.5+ years building production web applications — React, Next.js, and TypeScript on the frontend; CMS architecture, authentication, and payment integrations on the backend. I own features end-to-end, from database schema to deployment."
 };
 
 export default function Home() {

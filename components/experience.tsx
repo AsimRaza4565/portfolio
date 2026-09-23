@@ -13,7 +13,7 @@ const experiences: IExperience[] = [
     id: "experience_1",
     title:
       "Frontend Developer at Revnix (formerly Revnix Technologies), Haripur, Pakistan",
-    desc: "Contribute to the development and maintenance of production-grade client applications and company products using React.js, Next.js, TypeScript, Tailwind CSS, and Shadcn UI. Focus on building reusable UI components, integrating APIs, implementing custom filters, and enhancing responsiveness, performance, accessibility, and SEO across scalable frontend systems.",
+    desc: "Build full-stack features for production client sites — CMS architecture, authentication/RBAC, Stripe payment integration, and Core Web Vitals optimization. Designed and built an internal admin tool end-to-end, and led privacy/security hardening (cookie consent, CSP) and third-party integrations (Microsoft Dynamics 365, Google Reviews, marketing tag management) across multiple live sites.",
     duration: "October 2025 – Present",
     previousRole: "Previously: Frontend Intern (April 2025 – September 2025)",
     logo: RevnixLogo,

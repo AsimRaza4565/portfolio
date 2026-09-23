@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import LinkedInLogo from "../public/linkedin.webp";
 import GitHubLogo from "../public/github.webp";
-import InstagramLogo from "../public/instagram-logo.webp";
 
 const navigationLinks = [
   { href: "#home", label: "Home" },
@@ -27,14 +26,7 @@ const socialLinks = [
     alt: "Asim Raza Github Profile",
     title: "Github Profile",
     ariaLabel: "Github Profile",
-  },
-  {
-    href: "https://www.instagram.com/asim_raza_awan",
-    src: InstagramLogo,
-    alt: "Asim Raza Instagram Profile",
-    title: "Instagram Profile",
-    ariaLabel: "Instagram Profile",
-  },
+  }
 ];
 
 export default function Footer() {

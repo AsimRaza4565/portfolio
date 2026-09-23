@@ -4,23 +4,54 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import RoleBasedImg from "../public/role-based-CRUD.webp";
+import ReactNativeImg from "../public/react-native.webp";
+import BettermentImage from "../public/betterment.webp";
 import NextJsLogo from "../public/nextjs-logo.webp";
 import FigmaImg from "../public/Figma.webp";
 import CSSLogo from "../public/CSS-Logo.webp";
-import ThreeStepImg from "../public/3-step-form.webp";
-import JSLogo from "../public/javascript-logo.webp";
 import { IProjectInfo } from "@/types";
 
 const Project_Info: IProjectInfo = {
-  Project_1: "Full-stack RBAC system with secure authentication and CRUD operations, built with Next.js and MongoDB. Features scalable architecture and a modern, responsive frontend.",
-  Project_2: "Responsive website converted from Figma design, optimized for performance, cross-browser compatibility, and pixel-perfect accuracy.",
-  Project_3: "Multi-step form wizard with real-time validation using vanilla JS. Smooth user navigation and clean data handling."
+  Project_1: {
+    title: "Betterment",
+    description:
+      "Full-stack civic-engagement mobile app (React Native/Expo, Node.js/Express, PostgreSQL/Prisma) built in ~2 days for a hackathon — gamification engine, AI-powered photo verification via Google Gemini vision, Urdu-language support. Won a placement for Revnix at the Build for Pakistan 'Best Software Solution' hackathon.",
+  },
+  Project_2: {
+    title: "Scalable Authz System",
+    description:
+      "An enterprise-grade, full-stack application centered around an end-to-end Role-Based Access Control (RBAC) engine using Next.js (App Router), TypeScript, and MongoDB. The platform integrates authentication, dynamic role assignment, and granular permission enforcement across two primary content domains: Posts and Events.",
+  },
+  Project_3: {
+    title: "Figma to Web",
+    description:
+      "Engineered a high-performance, fully responsive web application translated from Figma design with pixel-perfect precision. The project bridges design and frontend engineering by implementing fluid, mobile-first layouts across all device breakpoints, ensuring seamless visual continuity from displays down to mobile screens.",
+  }
 };
 
 const projectsData = [
   {
     id: 1,
-    description: Project_Info.Project_1,
+    title: Project_Info.Project_1.title,
+    description: Project_Info.Project_1.description,
+    mainImage: {
+      src: BettermentImage,
+      alt: "Betterment",
+      title: "Betterment App Thumbnail",
+    },
+    badgeImage: {
+      src: ReactNativeImg,
+      alt: "Betterment",
+      title: "Built with React Native Framework",
+      width: 50,
+      height: 50,
+      className: "absolute top-[-24] left-[-24] rotate-325 rounded-full",
+    },
+  },
+  {
+    id: 2,
+    title: Project_Info.Project_2.title,
+    description: Project_Info.Project_2.description,
     mainImage: {
       src: RoleBasedImg,
       alt: "Role-Based CRUD",
@@ -36,8 +67,9 @@ const projectsData = [
     },
   },
   {
-    id: 2,
-    description: Project_Info.Project_2,
+    id: 3,
+    title: Project_Info.Project_3.title,
+    description: Project_Info.Project_3.description,
     mainImage: {
       src: FigmaImg,
       alt: "Figma to Web",
@@ -50,23 +82,6 @@ const projectsData = [
       width: 58,
       height: 58,
       className: "absolute top-[-28] left-[-28] rotate-325",
-    },
-  },
-  {
-    id: 3,
-    description: Project_Info.Project_3,
-    mainImage: {
-      src: ThreeStepImg,
-      alt: "3-step-form",
-      title: "3-step-form Project Thumbnail",
-    },
-    badgeImage: {
-      src: JSLogo,
-      alt: "JS Logo",
-      title: "Built with modern JavaScript",
-      width: 42,
-      height: 42,
-      className: "absolute top-[-24] left-[-24] rotate-325 rounded-lg",
     },
   },
 ];
@@ -113,7 +128,7 @@ export default function Projects() {
                 duration: 0.5,
                 ease: "easeOut",
               }}
-              className="border-1 relative rounded-b-lg border-gray-700 hover:shadow-sm hover:shadow-gray-700 hover:scale-[1.02] transition-transform duration-500 ease-in-out"
+              className="border relative rounded-b-lg border-gray-700 hover:shadow-sm hover:shadow-gray-700 hover:scale-[1.02] transition-transform duration-500 ease-in-out"
             >
               <div className="h-[200px]">
                 <Image
@@ -133,9 +148,10 @@ export default function Projects() {
                 title={project.badgeImage.title}
                 className={project.badgeImage.className}
               />
-              <p className="p-4 text-white text-lg md:min-h-[120] sm:h-auto text-left">
-                {project.description}
-              </p>
+              <div className="p-4 text-white text-lg md:min-h-[120] sm:h-auto text-left flex flex-col gap-2">
+                <span className="font-semibold text-xl">{project.title}</span>
+                <span className="text-base text-gray-300">{project.description}</span>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -150,7 +166,7 @@ export default function Projects() {
           }}
           className="flex justify-center"
         >
-          <Button className="text-md px-3 py-1 my-8 shadow-sm shadow-gray-700 border-1 border-gray-700 hover:scale-105 rounded-3xl text-center text-gray-200">
+          <Button className="text-md px-3 py-1 my-8 shadow-sm shadow-gray-700 border border-gray-700 hover:scale-105 rounded-3xl text-center text-gray-200">
             <a
               href="https://github.com/AsimRaza4565/"
               target="blank"

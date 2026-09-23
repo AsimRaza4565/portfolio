@@ -16,28 +16,30 @@ const techGroups: ITechGroup[] = [
     title: "Frontend",
     items: [
       "React",
-      "Next.js",
+      "Next.js (App Router)",
       "TypeScript",
-      "JavaScript",
-      "HTML5",
-      "CSS3",
+      "JavaScript (ES6+)",
+      "React Native (Expo)",
       "Tailwind CSS",
+      "Zustand",
+      "TanStack Query",
+      "Shadcn UI"
     ],
     icon: <Code2 className="w-5 h-5 text-yellow-400" />,
   },
   {
-    title: "Backend & APIs",
-    items: ["REST APIs", "API Integration", "Node.js (Basic)"],
+    title: "Backend & Database",
+    items: ["Node.js", "REST APIs", "Server Actions", "PostgreSQL", "MySQL", "MongoDB", "Prisma", "Drizzle ORM", "JWT Auth", "NextAuth", "RBAC", "Stripe Integration"],
     icon: <Zap className="w-5 h-5 text-yellow-400" />,
   },
   {
-    title: "Database & CMS",
-    items: ["MongoDB", "CMS Management", "Content Updates"],
+    title: "CMS & Integrations",
+    items: ["Headless CMS Architecture (Nextly)", "Content Schema Design", "Google Maps API", "Google Tag Manager (GTM)"],
     icon: <Database className="w-5 h-5 text-yellow-400" />,
   },
   {
     title: "Tools & Workflow",
-    items: ["Git", "GitHub", "Postman", "VS Code", "Responsive Design"],
+    items: ["Git", "GitHub", "GitHub Actions (CI/CD)", "Docker", "Vercel", "Coolify", "Postman", "VS Code"],
     icon: <Wrench className="w-5 h-5 text-yellow-400" />,
   },
 ];
@@ -46,7 +48,7 @@ const strengths: ICoreStrength[] = [
   {
     title: "Performance Optimization",
     description:
-      "Improve page speed, reduce unnecessary re-renders, and optimize frontend performance across production pages.",
+      "Audit and optimize for Core Web Vitals — deferring third-party scripts, reducing re-renders, and improving Lighthouse scores across desktop and mobile.",
     icon: <Zap className="w-5 h-5 text-yellow-400" />,
   },
   {
@@ -58,7 +60,7 @@ const strengths: ICoreStrength[] = [
   {
     title: "SEO & Visibility",
     description:
-      "Implement SEO-conscious frontend practices including semantic HTML, metadata, and performance-focused improvements.",
+      "Implement technical SEO — JSON-LD structured data, sitemaps, Open Graph metadata — alongside performance work that supports real search visibility.",
     icon: <Search className="w-5 h-5 text-yellow-400" />,
   },
 ];
@@ -75,7 +77,7 @@ export default function Skills() {
       >
         {/* Section Heading */}
         <div className="flex justify-center mb-6">
-          <h2 className="text-lg px-3 py-1 mb-4 shadow-md shadow-gray-700 border-1 border-gray-700 rounded-3xl text-center text-black bg-gray-300">
+          <h2 className="text-lg px-3 py-1 mb-4 shadow-md shadow-gray-700 border border-gray-700 rounded-3xl text-center text-black bg-gray-300">
             Tech Stack & Core Strengths
           </h2>
         </div>
@@ -86,9 +88,7 @@ export default function Skills() {
             More than just UI development
           </h3>
           <p className="text-gray-300 text-sm sm:text-base leading-7">
-            I build responsive frontend experiences, integrate APIs, manage CMS
-            updates, fix functionality issues, and improve performance,
-            accessibility, and SEO across production web applications.
+            I build full-stack features on production applications — CMS architecture, authentication, payment integrations, performance and SEO — not just UI. Frontend is where I&apos;m strongest, but I regularly work the whole stack.
           </p>
         </div>
 
