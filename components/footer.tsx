@@ -1,96 +1,75 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import LinkedInLogo from "../public/linkedin.webp";
-import GitHubLogo from "../public/github.webp";
-
-const navigationLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#background", label: "About Me" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Projects" },
-];
-
-const socialLinks = [
-  {
-    href: "https://www.linkedin.com/in/asim-raza-689636324/",
-    src: LinkedInLogo,
-    alt: "Asim Raza LinkedIn Profile",
-    title: "LinkedIn Profile",
-    ariaLabel: "LinkedIn Profile",
-  },
-  {
-    href: "https://github.com/AsimRaza4565/",
-    src: GitHubLogo,
-    alt: "Asim Raza Github Profile",
-    title: "Github Profile",
-    ariaLabel: "Github Profile",
-  }
-];
+import { ArrowUp } from "lucide-react";
+import { site } from "@/lib/data/site";
+import LocalTime from "./local-time";
 
 export default function Footer() {
   return (
-    <section id="contact">
-      <div className="w-full sm:px-8 xs:px-4 sm:mt-24 xs:mt-12 bg-white sm:pt-24 xs:pt-16 pb-1 mx-auto flex flex-col gap-4 items-center">
-        <div className="flex sm:gap-5 xs:gap-3 flex-wrap justify-center text-lg font text-gray-800 lg:mb-5">
-          {navigationLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="hover:text-blue-800 hover:underline hover:font-semibold"
-            >
-              {link.label}
-            </Link>
-          ))}
+    <footer id="contact-end" className="border-t border-border">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-12">
+        <div className="flex flex-wrap items-start justify-between gap-8">
+          <div className="max-w-sm">
+            <p className="font-mono text-sm font-medium">
+              asim<span className="text-accent">.</span>dev
+            </p>
+            <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground">
+              Designed &amp; built by {site.name} — Next.js, Tailwind, and too much attention to
+              detail.
+            </p>
+          </div>
+
+          <nav aria-label="Footer">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+              {[...site.nav, { label: "contact", href: "#contact" }].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="font-mono text-[13px] text-muted-foreground transition-colors hover:text-accent"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <ul className="flex gap-6">
+            {site.socials.map((s) => (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-[13px] text-muted-foreground transition-colors hover:text-accent"
+                >
+                  {s.label.toLowerCase()}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                href={site.resume}
+                download
+                className="font-mono text-[13px] text-muted-foreground transition-colors hover:text-accent"
+              >
+                résumé.pdf
+              </a>
+            </li>
+          </ul>
         </div>
-        <div className="flex flex-col justify-center items-center gap-1">
-          <h2 className="text-xl md:text-2xl text-center font-semibold text-black">
-            Let&apos;s Work Together
-          </h2>
-          <h3 className="xs:text-2xl sm:text-3xl font-semibold text-yellow-500">
-            Asim Raza
-          </h3>
-        </div>
-        <h4 className="text-xl lg:text-2xl text-center font-semibold text-gray-700">
-          Frontend Developer | React/Next.js Developer
-        </h4>
-        <div className="flex flex-col items-center">
-          <p className="text-gray-600 text-md lg:text-lg text-center">
-            Open to freelance and collaboration opportunities
-          </p>
-          <Link
-            href="mailto:asimrazadev@gmail.com"
-            className="text-blue-800 hover:text-gray-800 hover:underline text-md"
+
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
+          <p className="font-mono text-xs text-muted-foreground">© 2026 {site.name}</p>
+          <LocalTime />
+          <a
+            href="#top"
+            className="group inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
           >
-            asimrazadev@gmail.com
-          </Link>
+            back to top
+            <ArrowUp className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5" aria-hidden="true" />
+          </a>
         </div>
-        <div className="flex items-center gap-4 pt-1">
-          {socialLinks.map((social) => (
-            <Link
-              key={social.ariaLabel}
-              href={social.href}
-              aria-label={social.ariaLabel}
-              target="blank"
-              rel="noopener noreferrer"
-              className="w-[44] p-2 border border-gray-400 rounded-full hover:bg-yellow-200"
-            >
-              <Image
-                src={social.src}
-                width={48}
-                height={48}
-                alt={social.alt}
-                title={social.title}
-                className="w-full rounded-full"
-              ></Image>
-            </Link>
-          ))}
-        </div>
-        <p className="mt-10 text-center">
-          &copy; 2026 Asim Raza. <span className="font-semibold">All Rights Reserved.</span>
-        </p>
       </div>
-    </section>
+    </footer>
   );
 }

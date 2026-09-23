@@ -1,210 +1,227 @@
 "use client";
 
-import React from "react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { Menu, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import AsimLogo from "../public/Asim.webp";
+import { useEffect, useRef, useState } from "react";
+import { Download, Menu, X } from "lucide-react";
+import { site } from "@/lib/data/site";
 
-export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+function useScrollState() {
+  const [scrolled, setScrolled] = useState(false);
+  const progressRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setScrolled(y > 8);
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const p = max > 0 ? y / max : 0;
+        if (progressRef.current) progressRef.current.style.transform = `scaleX(${p})`;
+        ticking = false;
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return { scrolled, progressRef };
+}
+
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState("");
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) setActive(e.target.id);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" },
+    );
+    for (const id of ids) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, [ids]);
+  return active;
+}
+
+function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  const links = [...site.nav, { label: "contact", href: "#contact" }];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-800/80 backdrop-blur-md">
-      <div className="max-w-[1200px] mx-auto flex justify-between items-center sm:px-8 xs:px-4 sm:py-3 xs:py-1">
-        {/* Logo */}
-        <Link href="#home">
-          <div className="flex items-center w-[150] h-[84]">
-            <Image
-              src={AsimLogo}
-              alt="Author Asim-Raza"
-              title="Asim Raza"
-              width={136}
-              height={36}
-            />
-          </div>
-        </Link>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex">
-          <NavigationMenu viewport={false}>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>About</NavigationMenuTrigger>
-                <NavigationMenuContent className="flex gap-2 text-yellow-500">
-                  <Link href="#home">
-                    <NavigationMenuLink>Home</NavigationMenuLink>
-                  </Link>
-                  <Link href="#background">
-                    <NavigationMenuLink>Background</NavigationMenuLink>
-                  </Link>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Expertise</NavigationMenuTrigger>
-                <NavigationMenuContent className="flex gap-2 text-yellow-500">
-                  <Link href="#skills">
-                    <NavigationMenuLink>Skills</NavigationMenuLink>
-                  </Link>
-                  <Link href="#services">
-                    <NavigationMenuLink>Services</NavigationMenuLink>
-                  </Link>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Work</NavigationMenuTrigger>
-                <NavigationMenuContent className="flex gap-2 text-yellow-500">
-                  <Link href="#projects">
-                    <NavigationMenuLink>Projects</NavigationMenuLink>
-                  </Link>
-                  <Link href="#experience">
-                    <NavigationMenuLink>Experience</NavigationMenuLink>
-                  </Link>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link
-                  href="#blogs"
-                  className="rounded-sm px-4 py-2 text-md font-medium mr-4 text-white hover:text-gray-200 hover:underline"
-                >
-                  Blogs
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link
-                  href="#contact"
-                  className="rounded-sm bg-background px-4 py-2 text-md font-medium hover:bg-gray-200 hover:text-accent-foreground disabled:pointer-events-none"
-                >
-                  Contact
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className="md:hidden">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <button title="Menu" className="p-2 text-white">
-                <Menu className="w-6 h-6" />
-              </button>
-            </SheetTrigger>
-
-            <SheetContent
-              side="right"
-              className="bg-gray-900 text-white border-l border-gray-700 w-[80vw] sm:w-[250px] [&>button]:top-8 [&>button]:right-6 [&>button_svg]:size-6"
+    <div
+      className="fixed inset-0 z-[90] flex flex-col bg-background/95 backdrop-blur-xl md:hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site menu"
+    >
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
+        <span className="font-mono text-sm font-medium">
+          asim<span className="text-accent">.</span>dev
+        </span>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close menu"
+          autoFocus
+          className="rounded-md p-2.5 text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
+      <nav className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6" aria-label="Mobile">
+        <ul className="space-y-2">
+          {links.map((link, i) => (
+            <li
+              key={link.href}
+              className="opacity-0"
+              style={{ animation: `menu-in 0.4s ease-out ${0.06 * i + 0.05}s forwards` }}
             >
-              <nav className="flex flex-col gap-6 mt-14 text-lg sm:text-xl xs:px-3 sm:px-6">
-                {/* About Section */}
-                <Collapsible className="mt-6 pr-4">
-                  <CollapsibleTrigger className="flex justify-between items-center font-semibold w-full gap-2">
-                    <span>About</span>
-                    <ChevronDown className="w-4 h-4 shrink-0" />
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="mt-1 space-y-1">
-                    <Link
-                      href="#home"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block hover:underline"
-                    >
-                      Home
-                    </Link>
-                    <Link
-                      href="#background"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block hover:underline"
-                    >
-                      Background
-                    </Link>
-                  </CollapsibleContent>
-                </Collapsible>
-
-                {/* Expertise Section */}
-                <Collapsible className="pr-4">
-                  <CollapsibleTrigger className="flex justify-between items-center font-semibold w-full gap-2">
-                    <span>Expertise</span>
-                    <ChevronDown className="w-4 h-4 shrink-0" />
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="mt-1 space-y-1">
-                    <Link
-                      href="#skills"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block hover:underline"
-                    >
-                      Skills
-                    </Link>
-                    <Link
-                      href="#services"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block hover:underline"
-                    >
-                      Services
-                    </Link>
-                  </CollapsibleContent>
-                </Collapsible>
-
-                {/* Work Section */}
-                <Collapsible className="pr-4">
-                  <CollapsibleTrigger className="flex justify-between items-center font-semibold w-full gap-2">
-                    <span>Work</span>
-                    <ChevronDown className="w-4 h-4 shrink-0" />
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="mt-1 space-y-1">
-                    <Link
-                      href="#projects"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block hover:underline"
-                    >
-                      Projects
-                    </Link>
-                    <Link
-                      href="#experience"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block hover:underline"
-                    >
-                      Experience
-                    </Link>
-                  </CollapsibleContent>
-                </Collapsible>
-
-                {/* Direct Links */}
-                <Link
-                  href="#blogs"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-semibold hover:underline"
-                >
-                  Blogs
-                </Link>
-                <Link
-                  href="#contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-semibold bg-white text-black xs:px-3 xs:py-1.5 sm:px-4 sm:py-2 rounded-md w-full text-base text-center sm:text-lg"
-                >
-                  Contact
-                </Link>
-              </nav>
-            </SheetContent>
-          </Sheet>
+              <Link
+                href={link.href}
+                onClick={onClose}
+                className="group flex items-baseline gap-4 py-3 text-4xl font-semibold tracking-tight transition-colors hover:text-accent"
+              >
+                <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <a
+          href={site.resume}
+          download
+          className="mt-8 inline-flex w-fit items-center gap-1.5 rounded-full border border-border px-4 py-2 font-mono text-[13px] text-muted-foreground transition-all duration-200 hover:border-accent/60 hover:text-foreground"
+        >
+          <Download className="h-3.5 w-3.5" aria-hidden="true" />
+          résumé
+        </a>
+      </nav>
+      <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-6 pb-10">
+        <a href={`mailto:${site.email}`} className="font-mono text-xs text-muted-foreground">
+          {site.email}
+        </a>
+        <div className="flex gap-4">
+          {site.socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
+            >
+              {s.label.toLowerCase()}
+            </a>
+          ))}
         </div>
       </div>
-    </nav>
+      <style>{`@keyframes menu-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }`}</style>
+    </div>
+  );
+}
+
+export default function Navbar() {
+  const { scrolled, progressRef } = useScrollState();
+  const active = useActiveSection([...site.nav.map((n) => n.href.slice(1)), "contact"]);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  return (
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-[80] transition-all duration-300 ${
+          scrolled ? "border-b border-border bg-background/80 backdrop-blur-md" : "border-b border-transparent"
+        }`}
+      >
+        <div
+          className={`mx-auto flex w-full max-w-6xl items-center justify-between px-6 transition-all duration-300 ${
+            scrolled ? "h-14" : "h-16"
+          }`}
+        >
+          <Link
+            href="/#top"
+            className="font-mono text-sm font-medium tracking-tight"
+            aria-label={`${site.name} — home`}
+          >
+            asim<span className="text-accent">.</span>dev
+          </Link>
+
+          <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+            {site.nav.map((link) => {
+              const id = link.href.slice(1);
+              const isActive = active === id;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`font-mono text-[13px] transition-colors duration-200 hover:text-foreground ${
+                    isActive ? "text-accent" : "text-muted-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <a
+              href={site.resume}
+              download
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-1.5 font-mono text-[13px] text-muted-foreground transition-all duration-200 hover:border-accent/60 hover:text-foreground"
+            >
+              <Download className="h-3.5 w-3.5" aria-hidden="true" />
+              résumé
+            </a>
+          </nav>
+
+          <button
+            ref={menuButtonRef}
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+            aria-expanded={menuOpen}
+            className="rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden"
+          >
+            <Menu className="h-5 w-5" aria-hidden="true" />
+          </button>
+        </div>
+        {/* Scroll progress */}
+        <div
+          ref={progressRef}
+          aria-hidden="true"
+          className="absolute bottom-[-1px] left-0 h-px w-full origin-left bg-accent/80"
+          style={{ transform: "scaleX(0)" }}
+        />
+      </header>
+      {menuOpen ? (
+        <MobileMenu
+          open={menuOpen}
+          onClose={() => {
+            setMenuOpen(false);
+            menuButtonRef.current?.focus();
+          }}
+        />
+      ) : null}
+    </>
   );
 }

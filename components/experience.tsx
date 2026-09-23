@@ -1,142 +1,90 @@
-"use client";
-
-import { motion } from "framer-motion";
-import Image from "next/image";
-import RevnixLogo from "../public/revnix-logo.webp";
-import RhombixLogo from "../public/rhombix-logo.webp";
-import BispLogo from "../public/bisp-logo.webp";
-import Link from "next/link";
-import { IExperience } from "@/types";
-
-const experiences: IExperience[] = [
-  {
-    id: "experience_1",
-    title:
-      "Frontend Developer at Revnix (formerly Revnix Technologies), Haripur, Pakistan",
-    desc: "Build full-stack features for production client sites — CMS architecture, authentication/RBAC, Stripe payment integration, and Core Web Vitals optimization. Designed and built an internal admin tool end-to-end, and led privacy/security hardening (cookie consent, CSP) and third-party integrations (Microsoft Dynamics 365, Google Reviews, marketing tag management) across multiple live sites.",
-    duration: "October 2025 – Present",
-    previousRole: "Previously: Frontend Intern (April 2025 – September 2025)",
-    logo: RevnixLogo,
-    href: "https://www.revnix.com",
-    alt: "Revnix Logo",
-    logoTitle: "Revnix Technologies",
-    logoClassName: "rounded-full shadow-md shadow-yellow-500",
-  },
-  {
-    id: "experience_2",
-    title: "Web Developer Intern (Remote) at Rhombix Technologies, Lahore, Pakistan",
-    desc: "Developed interactive frontend applications using React, JavaScript, HTML, CSS, and Tailwind CSS, focusing on functionality, usability, and responsive design. Built features such as search, categorization, playlist management, and dynamic UI updates across multiple applications, including a library management system and a music player.",
-    duration: "October 2025 – January 2026",
-    logo: RhombixLogo,
-    href: "https://www.rhombixtechnologies.com",
-    alt: "Rhombix Logo",
-    logoTitle: "Rhombix Technologies",
-    logoClassName: "",
-  },
-  {
-    id: "experience_3",
-    title:
-      "Web Developer Intern at Benazir Income Support Programme Headquarters, Islamabad, Pakistan",
-    desc: "Supported web application development using C#, SQL, and Bootstrap by building responsive web forms and functional interfaces. Gained practical experience working within structured development workflows and real-world system requirements in a government environment.",
-    duration: "July 2024 – September 2024",
-    logo: BispLogo,
-    href: "https://bisp.gov.pk",
-    alt: "BISP Logo",
-    logoTitle: "BISP Organization",
-    logoClassName: "",
-  },
-];
+import { experiences } from "@/lib/data/experience";
+import { Chip, Container, Section, SectionHeader } from "./ui";
+import { Reveal } from "./motion";
 
 export default function Experience() {
   return (
-    <section className="py-3" id="experience">
-      <div className="max-w-[1200px] mx-auto sm:mt-24 xs:mt-12 sm:px-8 xs:p-6">
-        <motion.div
-          initial={{ opacity: 0, y: 70 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{
-            duration: 1,
-            ease: "easeOut",
-          }}
-          className="flex justify-center"
-        >
-          <h2 className="text-lg px-3 py-1 mb-4 shadow-md shadow-gray-700 border border-gray-700 rounded-3xl text-center text-black bg-gray-300">
-            Professional Experience
-          </h2>
-        </motion.div>
+    <Section id="experience" className="border-t border-border">
+      <Container>
+        <Reveal>
+          <SectionHeader
+            eyebrow="experience"
+            title={
+              <>
+                Where I&apos;ve{" "}
+                <em className="font-serif font-normal italic text-accent">shipped</em>.
+              </>
+            }
+          />
+        </Reveal>
 
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{
-            duration: 1.2,
-            ease: "easeOut",
-          }}
-          className="text-gray-300 text-center text-lg! sm:text-base leading-7 mb-10"
-        >
-          Hands-on experience delivering scalable frontend solutions
-        </motion.p>
-
-        {experiences.map((exp, index) => (
-          <div key={exp.id} className="mb-16 lg:mb-8">
-            <motion.div
-              initial={{ opacity: 0, y: 70 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.5 }}
-              transition={{
-                duration: 1,
-                ease: "easeOut",
-              }}
-            >
-              <h2 className="xs:text-2xl sm:text-3xl pb-2 font-semibold text-yellow-500">
-                {exp.title}
-              </h2>
-              <span className="text-md font-semibold text-gray-400">
-                {exp.duration}
-              </span>
-
-              {exp.previousRole && (
-                <p className="text-sm sm:text-base text-gray-500 pt-1">
-                  {exp.previousRole}
-                </p>
-              )}
-            </motion.div>
-
-            <div className={`flex items-center xs:gap-4 mb-8 lg:flex-row xs:flex-col`}>
-              <p className={`py-4 text-lg lg:w-2/3 ${index === 0 ? "xs:w-full" : "sm:w-full"} text-white`}>
-                {exp.desc}
-              </p>
-
-              <motion.div
-                initial={{ opacity: 0, x: 70 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 1,
-                  ease: "easeOut",
-                }}
-                className="lg:w-1/3 xs:w-full flex justify-center"
-              >
-                <Link
-                  href={exp.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    src={exp.logo}
-                    width={180}
-                    height={180}
-                    alt={exp.alt}
-                    title={exp.logoTitle}
-                    className={exp.logoClassName}
+        <div className="relative mt-14">
+          {/* Timeline rail */}
+          <div
+            aria-hidden="true"
+            className="absolute top-2 bottom-2 left-[7px] w-px bg-border"
+          />
+          <ol className="space-y-14">
+            {experiences.map((exp, i) => (
+              <Reveal key={`${exp.company}-${exp.period}`} delay={i * 0.08}>
+                <li className="relative pl-10">
+                  {/* Node */}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute top-2 left-0 h-[15px] w-[15px] rounded-full border-2 ${
+                      exp.current ? "border-accent bg-accent/20" : "border-border-strong bg-background"
+                    }`}
                   />
-                </Link>
-              </motion.div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                    <h3 className="text-xl font-semibold tracking-tight md:text-2xl">{exp.role}</h3>
+                    {exp.current ? (
+                      <span className="rounded-full border border-accent/40 bg-accent/10 px-3 py-0.5 font-mono text-xs text-accent">
+                        current
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs text-muted-foreground">
+                    {exp.companyHref ? (
+                      <a
+                        href={exp.companyHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-foreground/80 underline decoration-border-strong underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                      >
+                        {exp.company}
+                      </a>
+                    ) : (
+                      <span className="text-foreground/80">{exp.company}</span>
+                    )}
+                    <span aria-hidden="true">·</span>
+                    <span>{exp.period}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{exp.location}</span>
+                  </p>
+                  {exp.note ? (
+                    <p className="mt-2 font-serif text-[15px] italic text-muted-foreground/80">{exp.note}</p>
+                  ) : null}
+                  <ul className="mt-4 max-w-[72ch] space-y-2">
+                    {exp.achievements.map((a) => (
+                      <li key={a.slice(0, 32)} className="flex gap-3 text-[15px] leading-relaxed text-muted-foreground">
+                        <span aria-hidden="true" className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-accent/70" />
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+                  <ul className="mt-5 flex flex-wrap gap-2" aria-label="Technologies used">
+                    {exp.tech.map((t) => (
+                      <li key={t}>
+                        <Chip>{t}</Chip>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </Container>
+    </Section>
   );
 }

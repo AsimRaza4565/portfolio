@@ -1,24 +1,28 @@
-import About from "@/components/about-me";
-import Blogs from "@/components/blogs";
-import Experience from "@/components/experience";
-import Footer from "@/components/footer";
-import Home from "@/components/hero";
 import Navbar from "@/components/navbar";
-import Projects from "@/components/projects";
-import Services from "@/components/services";
+import Hero from "@/components/hero";
+import ProofStrip from "@/components/proof-strip";
+import Work from "@/components/work";
 import Skills from "@/components/skills";
+import Experience from "@/components/experience";
+import About from "@/components/about";
+import Writing from "@/components/writing";
+import Contact from "@/components/contact";
+import Footer from "@/components/footer";
 
 export default function Page() {
   return (
     <>
       <Navbar />
-      <Home />
-      <About />
-      <Skills />
-      <Services />
-      <Projects />
-      <Experience />
-      <Blogs />
+      <main id="main">
+        <Hero />
+        <ProofStrip />
+        <Work />
+        <Skills />
+        <Experience />
+        <About />
+        <Writing />
+        <Contact />
+      </main>
       <Footer />
     </>
   );
