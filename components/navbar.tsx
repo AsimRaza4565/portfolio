@@ -67,7 +67,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
 
   if (!open) return null;
 
-  const links = [...site.nav, { label: "contact", href: "#contact" }];
+  const links = [...site.nav, { label: "contact", href: "/#contact" }];
 
   return (
     <div
@@ -143,7 +143,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
 
 export default function Navbar() {
   const { scrolled, progressRef } = useScrollState();
-  const active = useActiveSection([...site.nav.map((n) => n.href.slice(1)), "contact"]);
+  const active = useActiveSection([...site.nav.map((n) => n.href.split("#")[1]), "contact"]);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -169,7 +169,7 @@ export default function Navbar() {
 
           <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
             {site.nav.map((link) => {
-              const id = link.href.slice(1);
+              const id = link.href.split("#")[1];
               const isActive = active === id;
               return (
                 <Link

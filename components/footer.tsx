@@ -20,7 +20,7 @@ export default function Footer() {
 
           <nav aria-label="Footer">
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {[...site.nav, { label: "contact", href: "#contact" }].map((link) => (
+              {[...site.nav, { label: "contact", href: "/#contact" }].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

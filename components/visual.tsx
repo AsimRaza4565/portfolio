@@ -144,15 +144,14 @@ export default function ProjectVisual({
     <div
       className={`group overflow-hidden rounded-xl border border-border bg-surface p-2.5 transition-colors duration-300 hover:border-accent/40 ${className}`}
     >
-      <div className="overflow-hidden rounded-lg">
+      <div className="overflow-hidden rounded-lg bg-surface-2">
+        {/* Natural size — project screenshots must never be cropped. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={visual.src}
           alt={visual.alt}
-          width={880}
-          height={550}
           loading="lazy"
-          className="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+          className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.01]"
         />
       </div>
     </div>

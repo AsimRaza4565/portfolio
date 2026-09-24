@@ -7,6 +7,7 @@ import { Blocks } from "@/components/blocks";
 import { Chip, Container, StatusBadge } from "@/components/ui";
 import { Reveal } from "@/components/motion";
 import ProjectVisual from "@/components/visual";
+import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 export function generateStaticParams() {
@@ -43,7 +44,8 @@ export default async function ProjectPage({
 
   return (
     <>
-      <main id="main" className="pt-24 pb-20 md:pt-32">
+      <Navbar />
+      <main id="main" className="pt-24 pb-20 md:pt-28">
         <Container>
           <Reveal>
             <Link

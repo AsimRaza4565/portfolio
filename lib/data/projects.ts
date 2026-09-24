@@ -108,7 +108,7 @@ export const featured: Project[] = [
       { label: "Live deployment — personal use", href: "https://job-radar-mauve.vercel.app/", kind: "live" },
       { label: "AsimRaza4565/job-radar", href: "https://github.com/AsimRaza4565/job-radar", kind: "github" },
     ],
-    visual: { kind: "mock" },
+    visual: { kind: "image", src: "/job-radar.webp", alt: "Job Radar dashboard — scored job feed with keyword manager and activity log" },
     caseStudy: [
       {
         id: "context",
@@ -180,7 +180,7 @@ export const featured: Project[] = [
               "Fully automated on free-tier infra — zero running cost, zero maintenance windows.",
               "Deduplication across sources and runs — each posting appears exactly once, ever.",
               "Skill-match filtering tuned live from the dashboard's keyword manager.",
-              "Email digests with direct apply links and Rozee.pk fallbacks for local listings.",
+              "Email digests with direct apply links and relevance score.",
               "AI résumé tailoring that stays honest — Gemini proposes, I review, the renderer enforces the truth.",
             ],
           },

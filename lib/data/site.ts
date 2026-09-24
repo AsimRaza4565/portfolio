@@ -14,11 +14,11 @@ export const site = {
     { label: "LinkedIn", href: "https://linkedin.com/in/asim-raza-689636324" },
   ],
   nav: [
-    { label: "work", href: "#work" },
-    { label: "skills", href: "#skills" },
-    { label: "experience", href: "#experience" },
-    { label: "about", href: "#about" },
-    { label: "writing", href: "#writing" },
+    { label: "work", href: "/#work" },
+    { label: "skills", href: "/#skills" },
+    { label: "experience", href: "/#experience" },
+    { label: "about", href: "/#about" },
+    { label: "writing", href: "/#writing" },
   ],
   proof: {
     label: "in production with",
