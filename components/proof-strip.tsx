@@ -22,7 +22,7 @@ export default function ProofStrip() {
         <Reveal>
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <Eyebrow>{site.proof.label}</Eyebrow>
-            <p className="font-mono text-xs text-muted-foreground/70">{site.proof.note}</p>
+            <p className="font-mono text-sm text-muted-foreground/70">{site.proof.note}</p>
           </div>
         </Reveal>
         {/* Desktop: static row / Mobile: marquee */}

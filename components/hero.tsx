@@ -65,7 +65,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-300" />
             </span>
-            <span className="font-mono text-xs text-muted-foreground">{site.availability}</span>
+            <span className="font-mono text-sm text-muted-foreground">{site.availability}</span>
           </motion.div>
 
           {/* Eyebrow */}
@@ -73,7 +73,7 @@ export default function Hero() {
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
-            className="mt-8 font-mono text-sm text-muted-foreground"
+            className="mt-8 font-mono text-[15px] text-muted-foreground"
           >
             <span className="text-accent">{"//"}</span> {site.name} · {site.location} ⇄ remote
           </motion.p>
@@ -124,7 +124,7 @@ export default function Hero() {
           >
             <a
               href="#work"
-              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-base font-medium text-accent-foreground transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover"
             >
               View selected work
               <ArrowDown
@@ -135,7 +135,7 @@ export default function Hero() {
             <a
               href={site.resume}
               download
-              className="group inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-muted-foreground transition-all duration-200 hover:border-accent/60 hover:text-foreground"
+              className="group inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-base font-medium text-muted-foreground transition-all duration-200 hover:border-accent/60 hover:text-foreground"
             >
               <FileDown className="h-4 w-4" aria-hidden="true" />
               Download résumé
@@ -155,9 +155,9 @@ export default function Hero() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1 font-mono text-[13px] text-muted-foreground transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-1 font-mono text-[15px] text-muted-foreground transition-colors hover:text-accent"
               >
-                {s.label.toLowerCase()}
+                {s.label}
                 <ArrowUpRight
                   className="h-3 w-3 opacity-0 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
                   aria-hidden="true"
@@ -186,7 +186,7 @@ export default function Hero() {
                 className="aspect-square w-full object-cover grayscale-[35%] transition-all duration-500 hover:grayscale-0"
               />
             </div>
-            <figcaption className="flex items-center justify-between px-2 pt-3 pb-1 font-mono text-xs text-muted-foreground">
+            <figcaption className="flex items-center justify-between px-2 pt-3 pb-1 font-mono text-sm text-muted-foreground">
               <span>{site.portrait.caption}</span>
               <span className="text-accent">↗</span>
             </figcaption>
@@ -205,7 +205,7 @@ export default function Hero() {
         initial={reduce ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-6 left-6 hidden items-center gap-2 font-mono text-xs text-muted-foreground transition-colors hover:text-accent md:inline-flex"
+        className="absolute bottom-6 left-6 hidden items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-accent md:inline-flex"
       >
         scroll
         <motion.span

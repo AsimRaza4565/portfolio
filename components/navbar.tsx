@@ -67,7 +67,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
 
   if (!open) return null;
 
-  const links = [...site.nav, { label: "contact", href: "/#contact" }];
+  const links = [...site.nav, { label: "Contact", href: "/#contact" }];
 
   return (
     <div
@@ -77,7 +77,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
       aria-label="Site menu"
     >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-        <span className="font-mono text-sm font-medium">
+        <span className="font-mono text-[15px] font-medium">
           asim<span className="text-accent">.</span>dev
         </span>
         <button
@@ -103,7 +103,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
                 onClick={onClose}
                 className="group flex items-baseline gap-4 py-3 text-4xl font-semibold tracking-tight transition-colors hover:text-accent"
               >
-                <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
                 {link.label}
               </Link>
             </li>
@@ -112,14 +112,14 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
         <a
           href={site.resume}
           download
-          className="mt-8 inline-flex w-fit items-center gap-1.5 rounded-full border border-border px-4 py-2 font-mono text-[13px] text-muted-foreground transition-all duration-200 hover:border-accent/60 hover:text-foreground"
+          className="mt-8 inline-flex w-fit items-center gap-1.5 rounded-full border border-border px-4 py-2 font-mono text-[15px] text-muted-foreground transition-all duration-200 hover:border-accent/60 hover:text-foreground"
         >
           <Download className="h-3.5 w-3.5" aria-hidden="true" />
-          résumé
+          Résumé
         </a>
       </nav>
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-6 pb-10">
-        <a href={`mailto:${site.email}`} className="font-mono text-xs text-muted-foreground">
+        <a href={`mailto:${site.email}`} className="font-mono text-sm text-muted-foreground">
           {site.email}
         </a>
         <div className="flex gap-4">
@@ -129,7 +129,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
+              className="font-mono text-sm text-muted-foreground transition-colors hover:text-accent"
             >
               {s.label.toLowerCase()}
             </a>
@@ -161,7 +161,7 @@ export default function Navbar() {
         >
           <Link
             href="/#top"
-            className="font-mono text-sm font-medium tracking-tight"
+            className="font-mono text-[15px] font-medium tracking-tight"
             aria-label={`${site.name} — home`}
           >
             asim<span className="text-accent">.</span>dev
@@ -176,7 +176,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   aria-current={isActive ? "true" : undefined}
-                  className={`font-mono text-[13px] transition-colors duration-200 hover:text-foreground ${
+                  className={`font-mono text-[15px] transition-colors duration-200 hover:text-foreground ${
                     isActive ? "text-accent" : "text-muted-foreground"
                   }`}
                 >
@@ -187,10 +187,10 @@ export default function Navbar() {
             <a
               href={site.resume}
               download
-              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-1.5 font-mono text-[13px] text-muted-foreground transition-all duration-200 hover:border-accent/60 hover:text-foreground"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-1.5 font-mono text-[15px] text-muted-foreground transition-all duration-200 hover:border-accent/60 hover:text-foreground"
             >
               <Download className="h-3.5 w-3.5" aria-hidden="true" />
-              résumé
+              Résumé
             </a>
           </nav>
 

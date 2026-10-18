@@ -15,8 +15,8 @@ export default function Contact() {
       <Container className="relative">
         <Reveal>
           <div className="flex flex-col items-center py-8 text-center md:py-14">
-            <p className="font-mono text-sm text-muted-foreground">
-              <span className="text-accent">{"//"}</span> contact
+            <p className="font-mono text-[15px] text-muted-foreground">
+              <span className="text-accent">{"//"}</span> Contact
             </p>
             <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-5xl">
               Let&apos;s build something{" "}
@@ -38,7 +38,7 @@ export default function Contact() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-1 font-mono text-[13px] text-foreground/75 transition-colors hover:text-accent"
+                  className="group inline-flex items-center gap-1 font-mono text-[15px] text-foreground/75 transition-colors hover:text-accent"
                 >
                   {s.label.toLowerCase()}
                   <ArrowUpRight

@@ -50,10 +50,10 @@ export default async function ProjectPage({
           <Reveal>
             <Link
               href="/#work"
-              className="group inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
+              className="group inline-flex items-center gap-1.5 font-mono text-sm text-muted-foreground transition-colors hover:text-accent"
             >
               <ArrowLeft className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" aria-hidden="true" />
-              all work
+              All work
             </Link>
           </Reveal>
 
@@ -62,7 +62,7 @@ export default async function ProjectPage({
             <Reveal>
               <div className="flex flex-wrap items-center gap-3">
                 <StatusBadge status={project.status} label={project.statusLabel} />
-                <span className="font-mono text-xs text-muted-foreground/70">
+                <span className="font-mono text-sm text-muted-foreground/70">
                   {project.role} · {project.year}
                 </span>
               </div>
@@ -94,7 +94,7 @@ export default async function ProjectPage({
                       {...(l.href.startsWith("http")
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="group inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+                      className="group inline-flex items-center gap-1.5 text-base font-medium text-accent transition-colors hover:text-accent-hover"
                     >
                       {l.label}
                       <ArrowUpRight
@@ -121,7 +121,7 @@ export default async function ProjectPage({
             {project.caseStudy.map((section, i) => (
               <Reveal key={section.id}>
                 <section aria-labelledby={`${project.slug}-${section.id}`} className="border-t border-border pt-8">
-                  <p className="font-mono text-xs text-accent">
+                  <p className="font-mono text-sm text-accent">
                     {String(i + 1).padStart(2, "0")} <span className="text-muted-foreground/50">/</span>{" "}
                     <span className="text-muted-foreground">{section.label}</span>
                   </p>
@@ -136,11 +136,11 @@ export default async function ProjectPage({
           {/* Prev / next */}
           <nav aria-label="More work" className="mt-20 grid grid-cols-1 gap-4 border-t border-border pt-8 sm:grid-cols-2">
             <Link href={`/projects/${prev.slug}`} className="group rounded-xl border border-border bg-surface p-5 transition-colors hover:border-accent/40">
-              <p className="font-mono text-xs text-muted-foreground/70">← previous</p>
+              <p className="font-mono text-sm text-muted-foreground/70">← Previous</p>
               <p className="mt-2 font-semibold tracking-tight transition-colors group-hover:text-accent">{prev.name}</p>
             </Link>
             <Link href={`/projects/${next.slug}`} className="group rounded-xl border border-border bg-surface p-5 text-right transition-colors hover:border-accent/40 sm:text-right">
-              <p className="font-mono text-xs text-muted-foreground/70">next →</p>
+              <p className="font-mono text-sm text-muted-foreground/70">Next →</p>
               <p className="mt-2 font-semibold tracking-tight transition-colors group-hover:text-accent">{next.name}</p>
             </Link>
           </nav>

@@ -22,7 +22,7 @@ export default function LocalTime() {
   }, []);
 
   return (
-    <span className="font-mono text-xs text-muted-foreground" suppressHydrationWarning>
+    <span className="font-mono text-sm text-muted-foreground" suppressHydrationWarning>
       {time ?? "--:--"} pkt · haripur, pk
     </span>
   );

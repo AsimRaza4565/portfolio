@@ -63,7 +63,7 @@ export const productionSites: ProductionSite[] = [
     href: "https://4riversequipment.com",
     blurb:
       "Dealer storefront for Colorado, New Mexico and Texas since 1926 — rentals, new & used equipment, and John Deere technology lines.",
-    tag: "since 1926",
+    tag: "Since 1926",
   },
   {
     name: "The Backyard",
@@ -71,7 +71,7 @@ export const productionSites: ProductionSite[] = [
     href: "https://thebackyard.com",
     blurb:
       "The home & ranch brand of 21st Century — mowers, compact tractors and outdoor power equipment for Colorado backyards.",
-    tag: "home & ranch",
+    tag: "Home & ranch",
   },
 ];
 
@@ -99,7 +99,7 @@ export const featured: Project[] = [
     role: "Design, architecture, full build",
     year: "2026",
     status: "personal",
-    statusLabel: "personal product",
+    statusLabel: "Personal product",
     summary:
       "Every ~3 hours a scheduled tick runs a serverless search across JSearch and three remote feeds; results are skill-matched, deduplicated into SQLite, and emailed as a digest — while the dashboard tracks status, keywords, and AI-tailored résumés.",
     tech: ["Next.js", "TypeScript", "Drizzle ORM", "Turso / SQLite", "Gemini API", "Nodemailer", "cron-job.org"],
@@ -112,7 +112,7 @@ export const featured: Project[] = [
     caseStudy: [
       {
         id: "context",
-        label: "context",
+        label: "Context",
         blocks: [
           {
             type: "p",
@@ -126,7 +126,7 @@ export const featured: Project[] = [
       },
       {
         id: "problem",
-        label: "problem",
+        label: "Problem",
         blocks: [
           {
             type: "p",
@@ -136,7 +136,7 @@ export const featured: Project[] = [
       },
       {
         id: "decisions",
-        label: "decisions",
+        label: "Decisions",
         blocks: [
           {
             type: "h3",
@@ -172,7 +172,7 @@ export const featured: Project[] = [
       },
       {
         id: "outcome",
-        label: "outcome",
+        label: "Outcome",
         blocks: [
           {
             type: "list",
@@ -188,7 +188,7 @@ export const featured: Project[] = [
       },
       {
         id: "retro",
-        label: "what i'd do differently",
+        label: "What I'd do differently",
         blocks: [
           {
             type: "p",
@@ -206,7 +206,7 @@ export const featured: Project[] = [
     role: "Full-stack developer",
     year: "2025",
     status: "hackathon",
-    statusLabel: "hackathon — placed",
+    statusLabel: "Hackathon — placed",
     summary:
       "A civic issue-reporting app built at Build for Pakistan: residents report local problems in Urdu or English, photos are AI-verified through Gemini, and reports route to a Node/Postgres backend from a React Native client.",
     tech: ["React Native · Expo", "Node.js", "PostgreSQL", "Gemini AI", "i18n"],
@@ -215,7 +215,7 @@ export const featured: Project[] = [
     caseStudy: [
       {
         id: "context",
-        label: "context",
+        label: "Context",
         blocks: [
           {
             type: "p",
@@ -225,7 +225,7 @@ export const featured: Project[] = [
       },
       {
         id: "problem",
-        label: "problem",
+        label: "Problem",
         blocks: [
           {
             type: "p",
@@ -235,7 +235,7 @@ export const featured: Project[] = [
       },
       {
         id: "decisions",
-        label: "decisions",
+        label: "Decisions",
         blocks: [
           {
             type: "h3",
@@ -259,7 +259,7 @@ export const featured: Project[] = [
       },
       {
         id: "outcome",
-        label: "outcome",
+        label: "Outcome",
         blocks: [
           {
             type: "list",
@@ -273,7 +273,7 @@ export const featured: Project[] = [
       },
       {
         id: "retro",
-        label: "what i'd do differently",
+        label: "What I'd do differently",
         blocks: [
           {
             type: "p",
@@ -291,7 +291,7 @@ export const featured: Project[] = [
     role: "Systems design & build",
     year: "2024",
     status: "open-source",
-    statusLabel: "open source",
+    statusLabel: "Open source",
     summary:
       "A role-based access control engine built to prove permissions can be a domain-agnostic layer — typed policies, composable roles, and audit-friendly checks — exercised across Posts and Events domains on Next.js App Router and MongoDB.",
     tech: ["Next.js App Router", "TypeScript", "MongoDB", "RBAC"],
@@ -303,7 +303,7 @@ export const featured: Project[] = [
     caseStudy: [
       {
         id: "context",
-        label: "context",
+        label: "Context",
         blocks: [
           {
             type: "p",
@@ -313,7 +313,7 @@ export const featured: Project[] = [
       },
       {
         id: "problem",
-        label: "problem",
+        label: "Problem",
         blocks: [
           {
             type: "p",
@@ -323,7 +323,7 @@ export const featured: Project[] = [
       },
       {
         id: "decisions",
-        label: "decisions",
+        label: "Decisions",
         blocks: [
           { type: "h3", text: "Policies as data, checked in one place" },
           {
@@ -349,7 +349,7 @@ export const featured: Project[] = [
       },
       {
         id: "outcome",
-        label: "outcome",
+        label: "Outcome",
         blocks: [
           {
             type: "list",
@@ -363,7 +363,7 @@ export const featured: Project[] = [
       },
       {
         id: "retro",
-        label: "what i'd do differently",
+        label: "What I'd do differently",
         blocks: [
           {
             type: "p",
@@ -381,7 +381,7 @@ export const featured: Project[] = [
     role: "Frontend developer @ Revnix",
     year: "2025 — present",
     status: "production",
-    statusLabel: "in production",
+    statusLabel: "In production",
     summary:
       "The storefronts I build and maintain at Revnix — 21st Century Equipment, 4Rivers Equipment and The Backyard — serve 25+ US locations with CMS-driven pages, auth, payments and performance budgets that hold.",
     tech: ["Next.js", "TypeScript", "Nextly CMS", "Stripe", "Vercel", "Tailwind"],
@@ -394,7 +394,7 @@ export const featured: Project[] = [
     caseStudy: [
       {
         id: "context",
-        label: "context",
+        label: "Context",
         blocks: [
           {
             type: "p",
@@ -434,7 +434,7 @@ export const featured: Project[] = [
       },
       {
         id: "outcome",
-        label: "outcome",
+        label: "Outcome",
         blocks: [
           {
             type: "list",

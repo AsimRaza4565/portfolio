@@ -11,7 +11,7 @@ export default function Writing() {
       <Container>
         <Reveal>
           <SectionHeader
-            eyebrow="writing"
+            eyebrow="Writing"
             title={
               <>
                 Notes from <em className="font-serif font-normal italic text-accent">shipping</em>.
@@ -42,7 +42,7 @@ export default function Writing() {
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted-foreground/70">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm text-muted-foreground/70">
                       <span>{formatDate(post.date)}</span>
                       <span aria-hidden="true">·</span>
                       <span>{post.readTime} read</span>
@@ -50,7 +50,7 @@ export default function Writing() {
                     <h3 className="mt-1.5 pr-6 text-lg leading-snug font-semibold tracking-tight text-foreground transition-colors duration-200 group-hover:text-accent sm:text-xl">
                       {post.title}
                     </h3>
-                    <p className="mt-1.5 line-clamp-2 max-w-[68ch] text-sm leading-relaxed text-muted-foreground">
+                    <p className="mt-1.5 line-clamp-2 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
                       {post.description}
                     </p>
                   </div>

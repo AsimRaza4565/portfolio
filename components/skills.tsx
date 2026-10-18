@@ -16,7 +16,7 @@ function Marquee() {
     <div className="marquee relative mt-16 overflow-hidden border-y border-border py-4" aria-hidden="true">
       <div className="marquee-track flex w-max animate-marquee items-center gap-3">
         {items.map((item, i) => (
-          <span key={i} className="flex items-center gap-3 font-mono text-xs tracking-widest text-muted-foreground/60 uppercase">
+          <span key={i} className="flex items-center gap-3 font-mono text-sm tracking-widest text-muted-foreground/60 uppercase">
             {item}
             <span className="text-accent/50">✦</span>
           </span>
@@ -32,7 +32,7 @@ export default function Skills() {
       <Container>
         <Reveal>
           <SectionHeader
-            eyebrow="capabilities"
+            eyebrow="Capabilities"
             title={
               <>
                 The stack —{" "}
@@ -49,8 +49,8 @@ export default function Skills() {
           {disciplines.map((d, i) => (
             <Reveal key={d.id} delay={i * 0.08} className="h-full">
               <SpotlightCard className="flex h-full flex-col p-7">
-                <p className="font-mono text-xs tracking-wide text-accent">{d.label}</p>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{d.blurb}</p>
+                <p className="font-mono text-sm tracking-wide text-accent">{d.label}</p>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{d.blurb}</p>
                 <ul className="mt-6 flex flex-wrap gap-2 pt-2 mt-auto" aria-label={`${d.label} skills`}>
                   {d.chips.map((c) => (
                     <li key={c}>
@@ -72,12 +72,12 @@ export default function Skills() {
                 <div key={b.title} className="border-l-2 border-border pl-5 transition-colors duration-300 hover:border-accent/60">
                   <div className="flex items-center gap-2.5">
                     <Icon className="h-4 w-4 text-accent" aria-hidden="true" />
-                    <h3 className="font-mono text-sm font-medium text-foreground">
+                    <h3 className="font-mono text-[15px] font-medium text-foreground">
                       <span className="text-muted-foreground/60">0{i + 1} </span>
                       {b.title}
                     </h3>
                   </div>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{b.text}</p>
+                  <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">{b.text}</p>
                 </div>
               );
             })}

@@ -44,9 +44,9 @@ export function EmailAction() {
       </a>
       <p
         aria-live="polite"
-        className={`font-mono text-xs text-emerald-300 transition-opacity duration-300 ${copied ? "opacity-100" : "opacity-0"}`}
+        className={`font-mono text-sm text-emerald-300 transition-opacity duration-300 ${copied ? "opacity-100" : "opacity-0"}`}
       >
-        copied to clipboard ✓
+        Copied to clipboard ✓
       </p>
     </div>
   );

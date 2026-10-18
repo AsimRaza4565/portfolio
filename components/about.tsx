@@ -30,7 +30,7 @@ export default function About() {
       <Container>
         <Reveal>
           <SectionHeader
-            eyebrow="about"
+            eyebrow="About"
             title={
               <>
                 The person behind{" "}
@@ -68,13 +68,13 @@ export default function About() {
             <dl className="divide-y divide-border rounded-xl border border-border bg-surface">
               {facts.map((f) => (
                 <div key={f.label} className="p-5 first:rounded-t-xl last:rounded-b-xl">
-                  <dt className="flex items-center gap-2 font-mono text-xs text-accent">
+                  <dt className="flex items-center gap-2 font-mono text-sm text-accent">
                     <f.icon className="h-3.5 w-3.5" aria-hidden="true" />
                     {f.label}
                   </dt>
                   <dd className="mt-2.5 space-y-1">
                     {f.lines.map((l) => (
-                      <p key={l} className="text-sm leading-relaxed text-muted-foreground">
+                      <p key={l} className="text-base leading-relaxed text-muted-foreground">
                         {l}
                       </p>
                     ))}
@@ -82,11 +82,11 @@ export default function About() {
                 </div>
               ))}
               <div className="p-5">
-                <dt className="flex items-center gap-2 font-mono text-xs text-accent">
+                <dt className="flex items-center gap-2 font-mono text-sm text-accent">
                   <Flame className="h-3.5 w-3.5" aria-hidden="true" />
                   beyond code
                 </dt>
-                <dd className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                <dd className="mt-2.5 text-base leading-relaxed text-muted-foreground">
                   Always a side project on the boil — currently Job Radar. Ask me about the last
                   one.
                 </dd>

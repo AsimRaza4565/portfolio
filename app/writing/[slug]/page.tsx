@@ -66,10 +66,10 @@ export default async function WritingPage({
             <Reveal>
               <Link
                 href="/#writing"
-                className="group inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-1.5 font-mono text-sm text-muted-foreground transition-colors hover:text-accent"
               >
                 <ArrowLeft className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" aria-hidden="true" />
-                all writing
+                All writing
               </Link>
             </Reveal>
           </div>
@@ -77,7 +77,7 @@ export default async function WritingPage({
           <article className="mx-auto mt-10 max-w-3xl">
             <Reveal>
               <header>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted-foreground/70">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm text-muted-foreground/70">
                   <span>{formatDate(post.date)}</span>
                   <span aria-hidden="true">·</span>
                   <span>{post.readTime} read</span>
@@ -107,11 +107,11 @@ export default async function WritingPage({
 
           <nav aria-label="More writing" className="mx-auto mt-20 grid max-w-3xl grid-cols-1 gap-4 border-t border-border pt-8 sm:grid-cols-2">
             <Link href={`/writing/${prev.slug}`} className="group rounded-xl border border-border bg-surface p-5 transition-colors hover:border-accent/40">
-              <p className="font-mono text-xs text-muted-foreground/70">← previous</p>
+              <p className="font-mono text-sm text-muted-foreground/70">← Previous</p>
               <p className="mt-2 line-clamp-2 text-sm font-semibold tracking-tight transition-colors group-hover:text-accent">{prev.title}</p>
             </Link>
             <Link href={`/writing/${next.slug}`} className="group rounded-xl border border-border bg-surface p-5 transition-colors hover:border-accent/40 sm:text-right">
-              <p className="font-mono text-xs text-muted-foreground/70">next →</p>
+              <p className="font-mono text-sm text-muted-foreground/70">Next →</p>
               <p className="mt-2 line-clamp-2 text-sm font-semibold tracking-tight transition-colors group-hover:text-accent">{next.title}</p>
             </Link>
           </nav>

@@ -8,7 +8,7 @@ export default function Experience() {
       <Container>
         <Reveal>
           <SectionHeader
-            eyebrow="experience"
+            eyebrow="Experience"
             title={
               <>
                 Where I&apos;ve{" "}
@@ -38,12 +38,12 @@ export default function Experience() {
                   <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                     <h3 className="text-xl font-semibold tracking-tight md:text-2xl">{exp.role}</h3>
                     {exp.current ? (
-                      <span className="rounded-full border border-accent/40 bg-accent/10 px-3 py-0.5 font-mono text-xs text-accent">
+                      <span className="rounded-full border border-accent/40 bg-accent/10 px-3 py-0.5 font-mono text-sm text-accent">
                         current
                       </span>
                     ) : null}
                   </div>
-                  <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs text-muted-foreground">
+                  <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-sm text-muted-foreground">
                     {exp.companyHref ? (
                       <a
                         href={exp.companyHref}
@@ -62,11 +62,11 @@ export default function Experience() {
                     <span>{exp.location}</span>
                   </p>
                   {exp.note ? (
-                    <p className="mt-2 font-serif text-[15px] italic text-muted-foreground/80">{exp.note}</p>
+                    <p className="mt-2 font-serif text-base italic text-muted-foreground/80">{exp.note}</p>
                   ) : null}
                   <ul className="mt-4 max-w-[72ch] space-y-2">
                     {exp.achievements.map((a) => (
-                      <li key={a.slice(0, 32)} className="flex gap-3 text-[15px] leading-relaxed text-muted-foreground">
+                      <li key={a.slice(0, 32)} className="flex gap-3 text-base leading-relaxed text-muted-foreground">
                         <span aria-hidden="true" className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-accent/70" />
                         {a}
                       </li>

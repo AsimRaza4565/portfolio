@@ -111,7 +111,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
             return (
               <blockquote key={i} className="border-l-2 border-accent/60 pl-5 font-serif text-xl italic text-foreground">
                 “{b.text}”
-                {b.cite ? <footer className="mt-2 font-sans text-sm not-italic text-muted-foreground">— {b.cite}</footer> : null}
+                {b.cite ? <footer className="mt-2 font-sans text-base not-italic text-muted-foreground">— {b.cite}</footer> : null}
               </blockquote>
             );
           case "image":
@@ -125,7 +125,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
                   loading="lazy"
                 />
                 {b.caption ? (
-                  <figcaption className="mt-2 font-mono text-xs text-muted-foreground">{b.caption}</figcaption>
+                  <figcaption className="mt-2 font-mono text-sm text-muted-foreground">{b.caption}</figcaption>
                 ) : null}
               </figure>
             );

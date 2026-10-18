@@ -28,12 +28,12 @@ export function CodeBlock({
   return (
     <figure className="overflow-hidden rounded-xl border border-border bg-surface">
       <div className="flex items-center justify-between border-b border-border bg-surface-2 px-4 py-2">
-        <span className="font-mono text-xs text-muted-foreground">{title ?? lang ?? "code"}</span>
+        <span className="font-mono text-sm text-muted-foreground">{title ?? lang ?? "code"}</span>
         <button
           type="button"
           onClick={copy}
           aria-label={copied ? "Copied" : "Copy code"}
-          className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
+          className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 font-mono text-sm text-muted-foreground transition-colors hover:text-accent"
         >
           {copied ? (
             <Check className="h-3.5 w-3.5 text-emerald-300" aria-hidden="true" />
@@ -43,7 +43,7 @@ export function CodeBlock({
           {copied ? "copied" : "copy"}
         </button>
       </div>
-      <pre className="overflow-x-auto p-4 font-mono text-[13px] leading-relaxed text-foreground">
+      <pre className="overflow-x-auto p-4 font-mono text-sm leading-relaxed text-foreground">
         <code>{code}</code>
       </pre>
     </figure>

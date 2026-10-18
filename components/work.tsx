@@ -21,7 +21,7 @@ function FeaturedRow({ project, flip }: { project: (typeof featured)[number]; fl
         <div className={`lg:col-span-5 ${flip ? "lg:order-1 lg:col-start-1 lg:row-start-1" : ""}`}>
           <div className="flex flex-wrap items-center gap-3">
             <StatusBadge status={project.status} label={project.statusLabel} />
-            <span className="font-mono text-xs text-muted-foreground/70">{project.year}</span>
+            <span className="font-mono text-sm text-muted-foreground/70">{project.year}</span>
           </div>
           <h3 className="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">
             {project.name.split(project.accent ?? "~~~")[0]}
@@ -29,7 +29,7 @@ function FeaturedRow({ project, flip }: { project: (typeof featured)[number]; fl
               <span className="font-serif font-normal italic text-accent">{project.accent}</span>
             ) : null}
           </h3>
-          <p className="mt-1 font-mono text-xs text-muted-foreground">{project.role}</p>
+          <p className="mt-1 font-mono text-sm text-muted-foreground">{project.role}</p>
           <p className="mt-4 max-w-[52ch] leading-relaxed text-muted-foreground">{project.summary}</p>
           <ul className="mt-5 flex flex-wrap gap-2" aria-label="Technologies">
             {project.tech.map((t) => (
@@ -44,7 +44,7 @@ function FeaturedRow({ project, flip }: { project: (typeof featured)[number]; fl
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+                  className="group inline-flex items-center gap-1.5 text-base font-medium text-accent transition-colors hover:text-accent-hover"
                 >
                   {l.label}
                   <ArrowUpRight
@@ -58,7 +58,7 @@ function FeaturedRow({ project, flip }: { project: (typeof featured)[number]; fl
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-1.5 font-mono text-[13px] text-muted-foreground transition-colors hover:text-accent"
+                  className="group inline-flex items-center gap-1.5 font-mono text-[15px] text-muted-foreground transition-colors hover:text-accent"
                 >
                   {l.kind === "github" ? (
                     <Github className="h-3.5 w-3.5" aria-hidden="true" />
@@ -100,14 +100,14 @@ function SiteCard({ s }: { s: (typeof productionSites)[number] }) {
           <span className="text-lg font-semibold tracking-tight transition-colors group-hover:text-accent">
             {s.name}
           </span>
-          <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border px-2.5 py-1 font-mono text-[10px] text-emerald-300">
+          <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border px-2.5 py-1 font-mono text-xs text-emerald-300">
             <span className="h-1.5 w-1.5 rounded-full bg-current" />
             live
           </span>
         </div>
         <div>
-          <p className="text-sm leading-relaxed text-muted-foreground">{s.blurb}</p>
-          <p className="mt-4 font-mono text-xs text-muted-foreground/60">{s.tag} · next.js + nextly cms</p>
+          <p className="text-base leading-relaxed text-muted-foreground">{s.blurb}</p>
+          <p className="mt-4 font-mono text-sm text-muted-foreground/60">{s.tag} · next.js + nextly cms</p>
         </div>
       </div>
     </a>
@@ -120,7 +120,7 @@ export default function Work() {
       <Container>
         <Reveal>
           <SectionHeader
-            eyebrow="selected work"
+            eyebrow="Selected work"
             title={
               <>
                 Work that <em className="font-serif font-normal italic text-accent">went live</em>.
@@ -129,7 +129,7 @@ export default function Work() {
             lede="Production systems, a hackathon win, and a product that hunts jobs while I sleep — chosen for what they demonstrate, not filler."
             aside={
               <ArrowLink href="https://github.com/AsimRaza4565" external>
-                everything on github
+                Everything on GitHub
               </ArrowLink>
             }
           />
@@ -149,11 +149,11 @@ export default function Work() {
                 Shipped &amp; maintained{" "}
                 <em className="font-serif font-normal italic text-accent">in production</em>
               </h3>
-              <p className="font-mono text-xs text-muted-foreground/70">
-                client storefronts @ revnix — frontend
+              <p className="font-mono text-sm text-muted-foreground/70">
+                Client storefronts @ Revnix — Frontend
               </p>
             </div>
-            <p className="mt-3 max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-[65ch] text-base leading-relaxed text-muted-foreground">
               These run real businesses — inventory, parts, service and payments for US John Deere
               dealers. I build and maintain their frontends: CMS-driven pages, auth and checkout
               flows, and performance budgets that hold.{" "}
@@ -172,8 +172,8 @@ export default function Work() {
         {/* More work */}
         <Reveal>
           <div className="mt-16 border-t border-border pt-10">
-            <p className="font-mono text-xs tracking-wide text-muted-foreground">
-              <span className="text-accent">{"//"}</span> more work
+            <p className="font-mono text-sm tracking-wide text-muted-foreground">
+              <span className="text-accent">{"//"}</span> More work
             </p>
             <ul className="mt-5 divide-y divide-border">
               {moreWork.map((w) => (
@@ -181,10 +181,10 @@ export default function Work() {
                   key={w.name}
                   className="group grid grid-cols-1 gap-x-6 gap-y-0.5 py-3.5 sm:grid-cols-[minmax(0,14rem)_1fr]"
                 >
-                  <span className="text-sm font-medium text-foreground/90 transition-colors group-hover:text-accent">
+                  <span className="text-base font-medium text-foreground/90 transition-colors group-hover:text-accent">
                     {w.name}
                   </span>
-                  <span className="text-sm leading-relaxed text-muted-foreground">{w.text}</span>
+                  <span className="text-base leading-relaxed text-muted-foreground">{w.text}</span>
                 </li>
               ))}
             </ul>
