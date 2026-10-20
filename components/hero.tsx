@@ -105,14 +105,14 @@ export default function Hero() {
             >
               Revnix
             </a>{" "}
-            — dealer storefronts serving 25+ US locations. Off hours I build personal tools like{" "}
+            — dealer storefronts serving 25+ US locations. Off hours I ship products like{" "}
             <Link
               href="/projects/job-radar"
               className="font-medium text-foreground underline decoration-accent/50 underline-offset-4 transition-colors hover:decoration-accent"
             >
               Job Radar
             </Link>
-            , a job-hunting engine that works while I sleep.
+            , a job-hunting engine that works while its users sleep.
           </motion.p>
 
           {/* CTAs */}

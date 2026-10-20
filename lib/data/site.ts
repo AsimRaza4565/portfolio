@@ -8,7 +8,7 @@ export const site = {
   availability: "Open to full-time · freelance · remote",
   url: "https://asimraza.me",
   description:
-    "Asim Raza — frontend developer building React and Next.js interfaces at Revnix, from dealer storefronts serving 25+ US locations to personal tools like Job Radar.",
+    "Asim Raza — frontend developer building React and Next.js interfaces at Revnix, from dealer storefronts serving 25+ US locations to live products like Job Radar.",
   socials: [
     { label: "GitHub", href: "https://github.com/AsimRaza4565" },
     { label: "LinkedIn", href: "https://linkedin.com/in/asim-raza-689636324" },
