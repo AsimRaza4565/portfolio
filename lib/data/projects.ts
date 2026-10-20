@@ -95,14 +95,14 @@ export const featured: Project[] = [
     slug: "job-radar",
     name: "Job Radar",
     accent: "Radar",
-    tagline: "A job-hunting engine that works while I sleep",
+    tagline: "A multi-user job-hunting engine that works while I sleep",
     role: "Design, architecture, full build",
     year: "2026",
     status: "personal",
     statusLabel: "Personal product",
     summary:
-      "Every ~3 hours a scheduled tick runs a serverless search across JSearch and three remote feeds; results are skill-matched, deduplicated into SQLite, and emailed as a digest — while the dashboard tracks status, keywords, and AI-tailored résumés.",
-    tech: ["Next.js", "TypeScript", "Drizzle ORM", "Turso / SQLite", "Gemini API", "Nodemailer", "cron-job.org"],
+      "A scheduled serverless pipeline that scans JSearch, three remote feeds, three job boards and eight company ATS boards every ~3 hours, runs each posting through a seven-stage filter pipeline, and emails per-user digests — with CV-driven onboarding, an admin console, and AI résumé tailoring that edits your original DOCX in place.",
+    tech: ["Next.js", "TypeScript", "Drizzle ORM", "Turso / SQLite", "Gemini API", "OOXML editing", "Nodemailer", "cron-job.org"],
     links: [
       { label: "Read the case study", href: "/projects/job-radar", kind: "case" },
       { label: "Live deployment — personal use", href: "https://job-radar-mauve.vercel.app/", kind: "live" },
@@ -120,7 +120,7 @@ export const featured: Project[] = [
           },
           {
             type: "p",
-            text: "Job Radar is that system. It runs itself: an external cron ticks every 30 minutes, an in-app cooldown turns that into a real **Next.js serverless search** every ~3 hours (self-healing missed ticks), pulling from **JSearch** and three free remote feeds in parallel, and deciding what's worth my attention.",
+            text: "Job Radar started as that personal scraper. It has since grown into a small **multi-user product**: sign-up with email verification, upload your CV, and the system builds a search plan around *your* profile — cities, titles, experience level — then runs it for you on the same scheduled pipeline I built for myself, with an admin console and in-app announcements alongside.",
           },
         ],
       },
@@ -130,7 +130,7 @@ export const featured: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "Three constraints shaped the design. It had to run on free-tier infrastructure (Vercel Hobby, Turso's free SQLite, Gmail SMTP). It had to be stateful enough to dedupe across runs and track application status. And matching had to be tunable without redeploying — keywords live in the database, edited from the dashboard.",
+            text: "The original constraints still stand — free-tier infrastructure only (Vercel Hobby, Turso's free SQLite, Gmail SMTP), stateful dedup across runs, and matching tunable without redeploying. Multi-user added harder ones: every user needs an isolated search plan derived from their CV without hand-holding, the filter pipeline has to respect each person's experience level and home market, and the AI features must help without ever putting words in anyone's mouth.",
           },
         ],
       },
@@ -140,34 +140,51 @@ export const featured: Project[] = [
         blocks: [
           {
             type: "h3",
-            text: "The pipeline is one serverless function with clear stages",
+            text: "Sources: aggregators for reach, direct ATS boards for speed",
+          },
+          {
+            type: "p",
+            text: "Every run fans out across **JSearch** (Pakistan), three free remote feeds (RemoteOK, We Work Remotely, Himalayas), three job boards (LinkedIn, Indeed, Bing), and — the piece I'm proudest of — **direct polling of eight company ATS boards** (Greenhouse, Lever, Ashby, Workable). ATS boards need no API keys and no aggregators, so a role appears the moment a company publishes it, not when a crawler gets around to it.",
+          },
+          {
+            type: "h3",
+            text: "A seven-stage filter pipeline per user",
           },
           {
             type: "code",
             lang: "ts",
-            title: "app/api/search/route.ts",
-            code: `// 1. read keywords from DB        3. filter by skill match
-// 2. fetch JSearch + RemoteOK      4. dedupe against stored jobs
-//                                 5. persist + email the digest`,
+            title: "lib/matcher/*",
+            code: `// skill score → seniority guard → rival-stack guard
+// → work-auth filter → language filter → location filter
+// → blocklists (mills + pay-to-apply aggregators)`,
           },
           {
             type: "p",
-            text: "Each stage writes a **search log**, so the activity view can answer *why* a run found 3 jobs when yesterday's found 40. Observable-by-default beats clever.",
+            text: "Each stage is a small pure module with its own tests-in-waiting, driven by the user's onboarding answers — a 2-years-experience user in Islamabad and a remote-first user get genuinely different feeds. Deleted jobs become tombstones, so a dismissed posting never resurfaces. Every run writes a **search log**, so the activity view can answer *why* a run found 3 jobs when yesterday's found 40.",
           },
-          { type: "h3", text: "Drizzle + Turso for typed SQL on free tier" },
+          { type: "h3", text: "CV onboarding: extract, never invent" },
           {
             type: "p",
-            text: "Three tables — `jobs`, `search_keywords`, `search_logs` — with Drizzle providing the typed query layer. Schema-as-code means migrations are reviewable PRs, and Turso's free tier comfortably handles cron-sized writes.",
+            text: "New users upload their existing `.docx` CV. **Mammoth** converts it to HTML (keeping hyperlinks intact), **Gemini** extracts titles, skills and preferences *verbatim* — the prompt forbids rewriting or improving — and the user confirms or edits the draft before it ever touches the search plan. Extraction proposes; onboarding confirms.",
           },
-              { type: "h3", text: "AI résumé tailoring with a human in the loop" },
-              {
-                type: "p",
-                text: "Pick a saved job — or paste any job description — and **Gemini** returns a structured proposal: a relevance score, targeted edits to headline, summary, skills and experience bullets (each with a before/after and a JD-driven *why*), plus a draft cover letter. The guardrails are the point: job titles, dates, contact and education are immutable in the type system, and the DOCX renderer owns all formatting — the model can only propose wording, never invent history.",
-              },
-              {
-                type: "p",
-                text: "Every proposal is reviewed edit-by-edit — accept, reject, or tweak — before a tailored `.docx` is generated server-side and saved to a history of variants. It turned the system from a reader into a small apply-workflow.",
-              },
+          { type: "h3", text: "Résumé tailoring as in-place OOXML surgery" },
+          {
+            type: "p",
+            text: "The second-generation tailoring no longer rebuilds résumés from a template. A source map anchors each profile field to paragraphs inside the user's original document, and accepted edits are applied as **string-level surgery on `word/document.xml`** — changed paragraphs rewritten in place, removed bullets deleted, new bullets cloned from an existing bullet's formatting. Untouched bytes stay exactly as Word wrote them, so your original typography survives. If the map can't produce a faithful result, it falls back to the template builder rather than guess.",
+          },
+          {
+            type: "p",
+            text: "The guardrails are the point: **Gemini** scores relevance across five pillars and refuses to tailor below 30 — no edits, no cover letter. Proposals are capped at twelve surgical edits, each with an exact `before`, a tailored `after`, and a *why* citing the JD line and the résumé evidence. Job titles, dates, contact and education are immutable in the type system. The model can only propose wording; it can never invent history.",
+          },
+          {
+            type: "p",
+            text: "Every proposal is reviewed edit-by-edit — accept, reject, or tweak — before the tailored `.docx` is generated server-side and saved to a history of variants, alongside a draft cover letter written only from real experience.",
+          },
+          { type: "h3", text: "Multi-user without the bill" },
+          {
+            type: "p",
+            text: "Email auth with verification and reset flows, an admin role with a users console, in-app announcements shipped in code (a notice goes live with the same deploy as its feature), per-user API keys, and rotating JSearch keys with quota tracking so the free tier survives multiple users. Nine tables on Drizzle + Turso — schema as reviewable code.",
+          },
         ],
       },
       {
@@ -177,11 +194,11 @@ export const featured: Project[] = [
           {
             type: "list",
             items: [
-              "Fully automated on free-tier infra — zero running cost, zero maintenance windows.",
-              "Deduplication across sources and runs — each posting appears exactly once, ever.",
-              "Skill-match filtering tuned live from the dashboard's keyword manager.",
-              "Email digests with direct apply links and relevance score.",
-              "AI résumé tailoring that stays honest — Gemini proposes, I review, the renderer enforces the truth.",
+              "A scheduled pipeline scanning 8+ source types every ~3 hours — fully automated on free-tier infra, zero running cost.",
+              "Per-user feeds from CV onboarding: geo-rotated search plans, experience-aware filters, tombstoned dedup across sources and runs.",
+              "A seven-stage matcher that kills senior roles, rival stacks, US-work-auth-only listings, non-English posts and known mills before they ever reach an inbox.",
+              "Résumé tailoring that stays honest and keeps your formatting — Gemini proposes with evidence, the OOXML editor applies in place, history keeps every variant.",
+              "A real product surface: email auth, admin console, announcements, per-user settings — not just a cron job with a page.",
             ],
           },
         ],
@@ -192,7 +209,7 @@ export const featured: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "I'd add match-quality telemetry from the start — logging which keywords actually led to applications would make tuning objective instead of vibes-based. And the matcher's current scoring is a weighted keyword count; an embeddings pass on job descriptions is the obvious next upgrade, cheap to add behind the same interface.",
+            text: "The OOXML editor is deliberately string-based so untouched bytes survive — but that also means no structural validation, so malformed documents lean on the fallback path more than I'd like. Next pass: a validator that scores a document's mappability *before* onboarding, so users with exotic CV layouts get a heads-up instead of a silent template fallback. And the matcher's scoring is still a weighted keyword count — an embeddings pass on job descriptions is the obvious upgrade, cheap to add behind the same interface.",
           },
         ],
       },
